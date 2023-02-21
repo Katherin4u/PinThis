@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField
+from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError
 
 def comment_length(form, field):
