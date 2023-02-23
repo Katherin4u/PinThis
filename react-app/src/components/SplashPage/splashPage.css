@@ -102,7 +102,7 @@
     animation: slide-in 1s ease forwards;
     position: relative;
     animation-timing-function: ease-in-out;
-    
+
 }
 
 @keyframes slide-in {
@@ -115,20 +115,22 @@
     }
 }
 
-.all-posts1 {
+.all-posts2 {
     width: 100%;
     margin: auto;
     column-count: 7;
     padding: 0;
-    
+
 }
 
-.all-posts2 {
+/* .all-posts2 {
     columns: 7;
     
-}
+} */
 
 .all-post-images1 {
     position: relative;
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: column-reverse;
 }

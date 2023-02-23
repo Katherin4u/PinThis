@@ -7,7 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import AllPosts from "./components/AllPosts";
 import SinglePost from "./components/SinglePost"
-import SpashPage from "./components/SplashPage";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function App() {
             <SinglePost />
           </Route>
           <Route exact path="/">
-            <SpashPage />
+            <SplashPage />
           </Route>
         </Switch>
       )}
