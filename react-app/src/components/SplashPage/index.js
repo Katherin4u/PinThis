@@ -1,7 +1,7 @@
 import './splashPage.css'
 import { useState, useEffect } from "react";
 
-const SpashPage = () => {
+const SplashPage = () => {
     const [showText1, setShowText1] = useState(true);
     const [showText2, setShowText2] = useState(false);
     const [direction1, setDirection1] = useState(1);
@@ -39,7 +39,7 @@ const SpashPage = () => {
         let intervalId = setInterval(() => {
             setShowText1(!showText1);
             setShowText2(!showText2);
-        }, 100000);
+        }, 7000);
         return () => clearInterval(intervalId);
     }, [showText1, showText2]);
 
@@ -87,11 +87,11 @@ const SpashPage = () => {
                             </div>
                             <div className='image-main-container-11'>
                                 <div className="slide-in-images">
-                                    <div className='all-posts1'>
+                                    <div className='all-posts2'>
                                         {images2.map((image) => (
                                             <div className='all-post-images1'>
                                                 <div className='image-post-container'>
-                                                    <img key={image} src={image} />
+                                                    <img className='grid-item' key={image} src={image} />
                                                 </div>
                                             </div>
                                         ))}
@@ -107,4 +107,4 @@ const SpashPage = () => {
     );
 }
 
-export default SpashPage
+export default SplashPage
