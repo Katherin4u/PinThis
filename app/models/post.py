@@ -31,7 +31,7 @@ class Post(db.Model):
             'userId': self.user_id,
             'name': self.name,
             'description': self.description,
-            'imagesUrl': self.images.url
+            'imagesUrl': self.images[0].url
         }
 
     

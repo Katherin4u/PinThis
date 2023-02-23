@@ -7,6 +7,7 @@ import "./SignupForm.css";
 function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
+	const [age, setAge] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -48,11 +49,11 @@ function SignupFormModal() {
 					/>
 				</label>
 				<label>
-					Username
+					Age
 					<input
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
+						type="number"
+						value={age}
+						onChange={(e) => setAge(e.target.value)}
 						required
 					/>
 				</label>

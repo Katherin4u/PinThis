@@ -2,6 +2,176 @@
   position: absolute;
 }
 
+.create-post-dropdown {
+  position: absolute;
+}
+
 .hidden {
   display: none;
+}
+
+
+
+.nav-container {
+  padding: 1rem 2rem 1rem 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: white;
+}
+
+.Inner-nav-container {
+  display: flex;
+}
+
+.divider {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-post-container {
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.home-link {
+  background-color: black;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.navlink-text {
+  color: white;
+  text-decoration: none;
+  display: flex;
+}
+
+.create {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.nav-bar-profile-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 22px;
+}
+
+.fa-user {
+  color: grey;
+  background-color: lightgrey;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+
+.nav-bar-dropdown-menu {
+  text-align: left;
+  width: 100%;
+}
+.nav-bar-dropdown-menu1 {
+  text-align: left;
+  width: 100%;
+}
+
+.inside-dropdown {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* align-items: center; */
+  background-color: #FFF;
+  top: -2px;
+  right: 200px;
+  box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7);
+  border-radius: 15px;
+  padding: 20px 0px;
+  z-index: 1;
+  width: 230px;
+  height: 8em;
+  align-items: center;
+}
+.inside-dropdown1 {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* align-items: center; */
+  background-color: #FFF;
+  top: -1px;
+  right: 70px;
+  box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7);
+  border-radius: 15px;
+  padding: 20px 0px;
+  z-index: 1;
+  width: 180px;
+  height: 2em;
+  align-items: center;
+}
+
+.user-username {
+  padding: 10px;
+  display: flex;
+}
+
+.user-email {
+  padding: 10px
+}
+
+.logout-button-user {
+  padding: 10px
+}
+
+.second-profile-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-login-signup {
+  display: flex;
+}
+
+.loginmodal {
+  background-color: #e60023;
+  padding: 10px;
+  border-radius: 30px;
+  color: white;
+  
+}
+.login{
+  padding-right: 15px;
+}
+.loginmodal1 {
+  padding-right: 10px;
+}
+.loginmodal2 {
+  padding-right: 10px;
+  border-radius: 10px;
+}
+
+.Signup {
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 30px;
+  color: black;
+}
+.Signup1 {
+  padding-right: 10px;
+
+}
+
+
+.create-post-modal-css{
+  color: black;
+  font-weight: bold;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+.inside-dropdown1 :hover{
+  background-color: lightgray;
 }

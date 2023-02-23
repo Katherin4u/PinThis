@@ -1,0 +1,59 @@
+.main-spalshpage-container{
+    display: flex;
+    justify-content: center;
+}
+
+.second-main-spashpage-container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 200px ;
+}
+
+.title-contaienr{
+    font-size: 30px;
+    
+}
+.centering-it{
+    display: flex;
+    justify-content: center;
+}
+
+.main-botton-container{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.list-button1{
+    list-style: none;
+}
+.list-button2{
+    list-style: none;
+}
+
+.dot {
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    border-radius: 50%;
+    outline: none;
+  }
+  .dot:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .slide-in-text {
+    animation: slide-in 0.5s ease forwards;
+  
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }

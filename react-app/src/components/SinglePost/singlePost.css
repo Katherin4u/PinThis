@@ -1,0 +1,87 @@
+.single-post-main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.second-main-container {
+    display: flex;
+    flex-direction: row;
+    border: solid white;
+    box-shadow: 10px 10px 20px 0.5px rgba(179, 175, 175, 0.7);
+    width: 60rem;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.image-image {
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.edit-delete-main-container {
+    display: flex;
+}
+
+.edit-delete-main-container1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-button-container {
+    padding-left: 160px;
+    padding-top: 30px;
+}
+
+.edit-modal-container {
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.editmodal3 {
+    background-color: black;
+    padding: 8px;
+    border-radius: 100px;
+    color: white;
+    width: 85%;
+}
+
+/* .editmodal3 {
+    padding-right: 10px;
+} */
+
+.delete-post-button{
+    background-color: black;
+    padding: 7px;
+    border-radius: 100px;
+    color: white;
+    width: 90%;
+}
+
+.user-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+    width: 370px;
+    margin-left: 30px;
+}
+.user-container3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 14px;
+    width: 340px;
+    margin-left: 33px;
+    margin-right: 35px;
+}
+
+.name-title-css{
+    font-size: 35px;
+    line-break: auto;
+    font-weight: bold;
+}
+.name-title-css3{
+    line-break: auto;
+}
