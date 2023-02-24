@@ -1,0 +1,162 @@
+.single-post-main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.second-main-container {
+    display: flex;
+    flex-direction: row;
+    border: solid white;
+    box-shadow: 10px 10px 20px 0.5px rgba(179, 175, 175, 0.7);
+    width: 60rem;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.image-image {
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    object-fit: cover;
+}
+
+.edit-delete-main-container1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.edit-delete-main-container {
+    position: sticky;
+    top: 80px;
+    z-index: 2;
+    background: white;
+    border-radius: 15px;
+}
+
+.delete-button-container {
+    padding-left: 160px;
+    padding-top: 30px;
+}
+
+.edit-modal-container {
+    padding-left: 15px;
+    padding-top: 30px;
+}
+
+.editmodal3 {
+    background-color: black;
+    padding: 8px;
+    border-radius: 100px;
+    color: white;
+    width: 85%;
+}
+
+/* .editmodal3 {
+    padding-right: 10px;
+} */
+
+.delete-post-button {
+    background-color: black;
+    padding: 7px;
+    border-radius: 100px;
+    color: white;
+    width: 90%;
+}
+
+.user-container {
+    display: flex;
+    text-align: left;
+    padding-top: 35px;
+    width: 370px;
+}
+
+.user-container3 {
+    display: flex;
+    text-align: left;
+    padding-top: 14px;
+    width: 340px;
+
+}
+
+.name-title-css {
+    font-size: 35px;
+    line-break: auto;
+    font-weight: bold;
+}
+
+.name-title-css3 {
+    line-break: auto;
+}
+
+.comments-length {
+    line-break: auto;
+    margin-left: 45px;
+    padding-top: 35px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container-holding-comments {
+    flex: 1 1 auto;
+    min-height: 3;
+    min-width: 0;
+    overflow: auto;
+}
+
+.name-comment {
+    line-break: auto;
+}
+
+.firstname {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.lastname {
+    font-weight: bold;
+    font-size: 17px;
+    padding-right: 5px;
+}
+
+.main-component-first-last-comment {
+    padding: 10px;
+    display: flex;
+}
+
+.image-ppp {
+    padding-right: 10px;
+}
+
+.rando-div {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: column;
+    margin-left: 50px;
+    max-height: 1002px;
+}
+
+.edit-delete-user-container {
+    height: 100%;
+    max-height: 800px;
+    width: 508px;
+
+}
+
+.comment-form {
+    border-top: 1px solid rgb(239, 239, 239);
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    width: 100%;
+    padding: 20px;
+}
+
+.scroll {
+    height: 650px;
+    overflow: auto;
+
+}
