@@ -11,9 +11,9 @@ const EditPost = () => {
     const history = useHistory()
     const editPost = useSelector(state => state.posts.singlePost)
     const {closeModal} = useModal()
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [imagesUrl, setImagesUrl] = useState('')
+    const [name, setName] = useState(editPost.name)
+    const [description, setDescription] = useState(editPost.description)
+    const [imagesUrl, setImagesUrl] = useState(editPost.imagesUrl)
     const [errors, setErrors] = useState([])
 
     const user = useSelector(state => state.session.user)
@@ -45,7 +45,7 @@ const EditPost = () => {
     return (
         <div>
             <h1>Edit Post</h1>
-            <form>
+            <form onSubmit={handleSubmit} >
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
