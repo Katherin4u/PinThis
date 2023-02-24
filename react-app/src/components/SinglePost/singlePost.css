@@ -18,15 +18,23 @@
     width: 100%;
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
-}
-
-.edit-delete-main-container {
-    display: flex;
+    object-fit: cover;
 }
 
 .edit-delete-main-container1 {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.edit-delete-main-container {
+    position: sticky;
+    top: 80px;
+    z-index: 2;
+    background: white;
+    border-radius: 15px;
 }
 
 .delete-button-container {
@@ -35,7 +43,7 @@
 }
 
 .edit-modal-container {
-    padding-left: 30px;
+    padding-left: 15px;
     padding-top: 30px;
 }
 
@@ -51,7 +59,7 @@
     padding-right: 10px;
 } */
 
-.delete-post-button{
+.delete-post-button {
     background-color: black;
     padding: 7px;
     border-radius: 100px;
@@ -59,29 +67,96 @@
     width: 90%;
 }
 
-.user-container{
+.user-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: left;
     padding-top: 35px;
     width: 370px;
-    margin-left: 30px;
-}
-.user-container3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 14px;
-    width: 340px;
-    margin-left: 33px;
-    margin-right: 35px;
 }
 
-.name-title-css{
+.user-container3 {
+    display: flex;
+    text-align: left;
+    padding-top: 14px;
+    width: 340px;
+
+}
+
+.name-title-css {
     font-size: 35px;
     line-break: auto;
     font-weight: bold;
 }
-.name-title-css3{
+
+.name-title-css3 {
     line-break: auto;
+}
+
+.comments-length {
+    line-break: auto;
+    margin-left: 45px;
+    padding-top: 35px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container-holding-comments {
+    flex: 1 1 auto;
+    min-height: 3;
+    min-width: 0;
+    overflow: auto;
+}
+
+.name-comment {
+    line-break: auto;
+}
+
+.firstname {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.lastname {
+    font-weight: bold;
+    font-size: 17px;
+    padding-right: 5px;
+}
+
+.main-component-first-last-comment {
+    padding: 10px;
+    display: flex;
+}
+
+.image-ppp {
+    padding-right: 10px;
+}
+
+.rando-div {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: column;
+    margin-left: 50px;
+    max-height: 1002px;
+}
+
+.edit-delete-user-container {
+    height: 100%;
+    max-height: 800px;
+    width: 508px;
+
+}
+
+.comment-form {
+    border-top: 1px solid rgb(239, 239, 239);
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    width: 100%;
+    padding: 20px;
+}
+
+.scroll {
+    height: 650px;
+    overflow: auto;
+
 }

@@ -39,7 +39,7 @@ const SplashPage = () => {
         let intervalId = setInterval(() => {
             setShowText1(!showText1);
             setShowText2(!showText2);
-        }, 7000);
+        }, 5000);
         return () => clearInterval(intervalId);
     }, [showText1, showText2]);
 
