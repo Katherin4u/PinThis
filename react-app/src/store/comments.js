@@ -53,7 +53,6 @@ export const loadAllCommentsThunk = (postId) => async dispatch => {
 
 
 export const createCommentThunk = (postId, newComment) => async dispatch => {
-    console.log(newComment)
     const response = await fetch(`/api/posts/${postId}/comments`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -62,6 +61,7 @@ export const createCommentThunk = (postId, newComment) => async dispatch => {
 
     if (response.ok) {
         const createdComment = await response.json()
+        console.log('createdComment', createdComment)
         dispatch(createCommentAction(createdComment))
         return createdComment;
     } else if (response.status < 500) {
@@ -75,16 +75,18 @@ export const createCommentThunk = (postId, newComment) => async dispatch => {
 
 };
 
-export const updateCommentThunk = (comments) => async dispatch => {
-    const response = await fetch(`/api/comments/${comments.id}`, {
+export const updateCommentThunk = (id, comments) => async dispatch => {
+    console.log('comment^^^^^^^^^^^^', comments)
+    const response = await fetch(`/api/comments/${id}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(comments),
     });
 
+
     if (response.ok) {
         const updatedComment = await response.json()
-        dispatch(createCommentAction(updatedComment))
+        dispatch(updateCommentAction(updatedComment))
         return updatedComment;
     } else if (response.status < 500) {
         const updatedComment = await response.json()
@@ -132,7 +134,7 @@ const commentsReducer = (state = initialState, action) => {
         };
         case UPDATE_COMMENT: {
             const newState = { ...state };
-            newState.comments.postComments[action.updatedComment.id] = action.updatedComment;
+            newState.postComments[action.updatedComment.id] = action.updatedComment;
             return newState;
         };
         case DELETE_COMMENT: {

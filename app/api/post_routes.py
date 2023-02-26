@@ -127,6 +127,7 @@ def all_comments_specific_post(id):
     return jsonify(comments1)
 
 
+
 @post_routes.route('/<int:id>/comments', methods=['POST'])
 @login_required
 def post_comment(id):

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createCommentThunk, loadAllCommentsThunk } from "../../store/comments";
+import { createCommentThunk, deleteCommentThunk, loadAllCommentsThunk } from "../../store/comments";
 import { thunkDeletePost, thunkSinglePost } from "../../store/posts";
 import EditPost from "../EditPost";
 import EditComment from "../EditComment";
 import OpenModalButton from "../OpenModalButton";
 import './singlePost.css'
+
 
 
 const SinglePost = () => {
@@ -15,13 +16,16 @@ const SinglePost = () => {
     const { postId } = useParams()
     const [comment, setComment] = useState()
     const [errors, setErrors] = useState([])
+    const [keepImage, setKeepImage] = useState(false)
     const Allcomments = useSelector((state) => state.comments)
+
     const post = useSelector((state) => state.posts.singlePost)
 
     useEffect(() => {
         dispatch(loadAllCommentsThunk(postId))
-        dispatch(thunkSinglePost(postId))
+        dispatch(thunkSinglePost(postId)).then(() => setKeepImage(true))
     }, [dispatch, postId])
+
 
     const user = useSelector((state) => state.session.user)
     if (!Allcomments) return null
@@ -42,7 +46,7 @@ const SinglePost = () => {
             .then(() => {
                 setComment('')
             })
-        // history.push(`/posts/${postId}/comments`)
+        history.push(`/posts/${postId}/comments`)
     }
 
 
@@ -61,8 +65,27 @@ const SinglePost = () => {
     })
 
 
-    if (!post) return null
+    const deleteCommentButton = (async (e, commentId) => {
+        e.preventDefault()
+        await dispatch(deleteCommentThunk(commentId))
+        history.push(`/posts/${postId}`)
+    })
 
+    const checkComments = ((usersId, allTheComments) => {
+        for (let i = 0; i < allTheComments.length; i++) {
+            const currentCom = allTheComments[i];
+            console.log(currentCom['userId'] == usersId)
+            if (currentCom['userId'] == usersId) {
+                return false;
+            }
+        }
+
+        return true;
+    })
+
+
+    if (!post) return null
+    if (!keepImage) return null
 
     return (
         <div className="single-post-main-container">
@@ -73,75 +96,103 @@ const SinglePost = () => {
                     </div>
 
                 </div>
-                <div className="edit-delete-user-container">
-                    <div className="edit-delete-main-container">
-                        <div className="edit-delete-main-container1">
-                            <div className="edit-modal-container">
-                                <div className='editmodal3'>
-                                    <OpenModalButton
-                                        className='editmodal3'
-                                        buttonText='Edit Post'
-                                        modalComponent={<EditPost />}
-                                    />
-                                </div>
-                            </div>
-                            <div className="delete-button-container">
-                                <button onClick={deleteButton} className="delete-post-button">Delete Product</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="scroll">
-                            <div className="rando-div">
-                                <div className="user-container">
-                                    <div className="name-title-css">
-                                        {post.name}
-                                    </div>
-                                </div>
-                                <div className="user-container3">
-                                    <div className="name-title-css3">
-                                        {post.description}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="comments-length">{`${allComments.length} Comments`}</div>
-                            <div className="container-holding-comments">
-                                {allComments?.map((comment) => (
-                                    <div className="main-component-first-last-comment">
-                                        <div className="image-ppp">
-                                            <i className="fa-solid fa-user"></i>
+                <div className="ksksks">
+
+                    <div className="edit-delete-user-container">
+                        <div className="edit-delete-main-container">
+                            {user && user.id === post.userId && (
+                                <div className="edit-delete-main-container1">
+
+                                    <div className="edit-modal-container">
+                                        <div className='editmodal3'>
+                                            <OpenModalButton
+                                                className='editmodal3'
+                                                buttonText='Edit Post'
+                                                modalComponent={<EditPost />}
+                                            />
                                         </div>
-                                        <span className="name-comment">
-                                            {<span className="firstname">{comment.firstName}</span>}
-                                            {<span className="lastname">{comment.lastName}</span>}
-                                            {comment.comment}
-                                            {/* <div>
-                                                <EditComment  />
-                                            </div> */}
-                                        </span>
                                     </div>
-                                ))}
-                            </div>
+                                    <div className="delete-button-container">
+                                        <button onClick={deleteButton} className="delete-post-button">Delete Product</button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
-                        <div className="comment-form">
-                            <form onSubmit={handleSubmit}>
-                                <ul>
-                                    {errors.map((error, idx) => (
-                                        <li key={idx}>{error}</li>
+                        <div>
+                            <div className="scroll">
+                                <div className="rando-div">
+                                    <div className="user-container">
+                                        <div className="name-title-css">
+                                            {post.name}
+                                        </div>
+                                    </div>
+                                    <div className="user-container3">
+                                        <div className="name-title-css3">
+                                            {post.description}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="comments-length">{`${allComments.length} Comments`}</div>
+                                <div className="container-holding-comments">
+                                    {allComments?.map((comment) => (
+                                        <div className="main-component-first-last-comment">
+                                            <div className="image-ppp">
+                                                <i className="fa-solid fa-user"></i>
+                                            </div>
+                                            <span className="name-comment">
+                                                {<span className="firstname">{comment.firstName}</span>}
+                                                {<span className="lastname">{comment.lastName}</span>}
+                                                {comment.comment}
+                                                <div>
+                                                    {user && user.id === comment.userId && (
+                                                        <div>
+                                                            <div>
+                                                                <EditComment props={{ id: comment.id, singleComment: comment.comment }} />
+                                                                <button onClick={(e) => deleteCommentButton(e, comment.id)}>Delete comment</button>
+                                                            </div>
+                                                        </div>
+
+                                                    )}
+                                                </div>
+                                            </span>
+                                        </div>
                                     ))}
-                                </ul>
-                                <label>
-                                    <input
-                                        placeholder="Add a comment"
-                                        id="comment"
-                                        type="text"
-                                        name="comment"
-                                        value={comment}
-                                        onChange={(e) => setComment(e.target.value)}
-                                    />
-                                    <button type="submit">Submit</button>
-                                </label>
-                            </form>
+                                </div>
+                            </div>
+                            <div>
+                                {checkComments(user.id, allComments) &&
+
+                                    <div className="comment-form">
+                                        <form onSubmit={handleSubmit}>
+                                            <ul>
+                                                {errors.map((error, idx) => (
+                                                    <li key={idx}>{error}</li>
+                                                ))}
+                                            </ul>
+                                            <label>
+                                                <input
+                                                    placeholder="Add a comment"
+                                                    id="comment"
+                                                    type="text"
+                                                    name="comment"
+                                                    value={comment}
+                                                    onChange={(e) => setComment(e.target.value)}
+                                                />
+                                                <div>
+                                                    {/* {user && user.id !== post.userId && (
+                                                        Allcomments.map(comment => comment.userId !== user.id)
+                                                     ) && ( */}
+                                                    <button type="submit">Submit</button>
+                                                    {/* )} */}
+                                                    {/* ): (
+                                                    <div>hi</div>
+                                                    )} */}
+                                                </div>
+                                            </label>
+                                        </form>
+                                    </div>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,11 @@
+.modal-main-div1{
+    height: 30rem;
+    width: 25rem;
+}
+
+.email-input1{
+    height: 100px;
+    width: 269px;
+    border-radius: 10px;
+    resize: none;
+}

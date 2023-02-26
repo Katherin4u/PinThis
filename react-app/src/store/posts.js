@@ -71,6 +71,7 @@ export const thunkCreatePost = (payload) => async (dispatch) => {
 }
 
 export const thunkEditPost = (updatedPost) => async (dispatch) => {
+    console.log('updatedPost', updatedPost)
     const response = await fetch(`/api/posts/${updatedPost.id}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
