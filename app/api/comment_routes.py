@@ -23,22 +23,24 @@ def all_comments():
 
 
 @comment_routes.route('/<int:id>', methods=['PUT'])
-@login_required
+# @login_required
 def edit_comment(id):
-    comment = Comment.query.get(id)
+    found_comment = Comment.query.get(id)
     res = request.get_json()
 
     form = CommentForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        form.populate_obj(comment)
+        form.populate_obj(found_comment)
 
-        comment.comment = res['comment']
+        found_comment.comment = res['comment']
+        # found_comment.id = res['id']
 
         db.session.commit()
-        res = comment.to_dict()
-        return jsonify(res)
+        res = found_comment.to_dict()
+
+        return res
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @comment_routes.route('/<int:id>', methods=['DELETE'])
@@ -48,7 +50,8 @@ def delete_comment(id):
 
     if comment:
         db.session.delete(comment)
-        db.session.commit.to_dict()
+        db.session.commit()
+        return comment.to_dict()
     else:
         return {'Error':'Could not delete comment'}
 

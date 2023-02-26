@@ -16,7 +16,7 @@
   padding: 1rem 2rem 1rem 5rem;
   position: sticky;
   top: 0;
-  /* z-index: 999; */
+  z-index: 3;
   background: white;
 }
 
@@ -105,7 +105,7 @@
   box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7);
   border-radius: 15px;
   padding: 20px 0px;
-  z-index: 1;
+  z-index: 2;
   width: 180px;
   height: 2em;
   align-items: center;
@@ -138,7 +138,7 @@
   padding: 10px;
   border-radius: 30px;
   color: white;
-  
+  cursor:pointer;
 }
 .login{
   padding-right: 15px;
@@ -147,8 +147,8 @@
   padding-right: 10px;
 }
 .loginmodal2 {
-  padding-right: 10px;
-  border-radius: 10px;
+  /* padding-right: 10px;
+  border-radius: 10px; */
 }
 
 .Signup {
@@ -156,6 +156,7 @@
   padding: 10px;
   border-radius: 30px;
   color: black;
+  cursor: pointer;
 }
 .Signup1 {
   padding-right: 10px;
@@ -174,4 +175,15 @@
 }
 .inside-dropdown1 :hover{
   background-color: lightgray;
+  border-radius: 10px;
+}
+
+.create-button-dropdown{
+  background-color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  border: none;
 }

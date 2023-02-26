@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import AllPosts from "./components/AllPosts";
 import SinglePost from "./components/SinglePost"
 import SplashPage from "./components/SplashPage";
+import CreatePost from "./components/CreatePost";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/posts">
             <AllPosts />
+          </Route>
+          <Route exact path="/create">
+            <CreatePost />
           </Route>
           <Route path="/posts/:postId">
             <SinglePost />
