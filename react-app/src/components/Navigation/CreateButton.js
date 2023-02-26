@@ -5,9 +5,11 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import CreatePost from "../CreatePost";
+import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
+    const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
 
@@ -38,6 +40,11 @@ function ProfileButton({ user }) {
     const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
     const closeMenu = () => setShowMenu(false);
 
+    const createPost = (async (e, commentId) => {
+        e.preventDefault()
+        history.push(`/create`)
+    })
+
     return (
         <>
             <button className="nav-bar-profile-button" onClick={openMenu}>
@@ -50,12 +57,7 @@ function ProfileButton({ user }) {
                             <div className='nav-bar-dropdown-menu1'>
                                 <div className="inside-dropdown1">
                                     <div className='loginmodal2'>
-                                        <OpenModalButton
-                                            className='create-post-modal-css'
-                                            buttonText="create post"
-                                            onItemClick={closeMenu}
-                                            modalComponent={<CreatePost />}
-                                        />
+                                        <button className="create-button-dropdown" onClick={createPost}>Create Post</button>
                                     </div>
                                 </div>
                             </div>

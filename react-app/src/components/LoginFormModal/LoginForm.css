@@ -1,0 +1,97 @@
+.modal-main-div {
+    height: 35rem;
+    width: 25rem;
+
+}
+
+
+#modal-content {
+    border-radius: 20px;
+    z-index: 9999;
+}
+#modal{
+    z-index: 2;
+}
+
+.welcome-to-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-modal {
+    color: rgb(54, 54, 54);
+}
+
+.login-form-modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-input {
+    height: 35px;
+    width: 269px;
+    border-radius: 10px;
+}
+
+.input-div :focus {
+    outline: 4px solid #4ba4fc;
+    outline-offset: 0px
+}
+
+.password-input {
+    height: 35px;
+    width: 269px;
+    border-radius: 10px;
+}
+
+
+.password-name {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.password-name1 {
+
+    padding-bottom: 10px;
+}
+
+.loginmodal1 {
+    background-color: #e60023;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+    height: 35px;
+    width: 269px;
+    border-radius: 10px;
+    border-color: red;
+
+}
+
+.login-button-modal-padding {
+    padding-top: 30px;
+}
+
+.or {
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.validations1 {
+    list-style: none;
+    color: red;
+}
+
+.validation-container {
+    padding-left: 45px;
+}
+
+.onChange {
+    border-color: skyblue;
+}
+
+/* .input-div :focus {
+    border: 5px solid blue;
+} */

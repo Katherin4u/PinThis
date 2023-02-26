@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { thunkCreatePost } from "../../store/posts"
+import './createPost.css'
 
 
 const CreatePost = () => {
@@ -47,54 +48,87 @@ const CreatePost = () => {
     }, [createdPost])
 
     return (
-        <div>
-            <h1>Create post</h1>
-            <form  onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
-                <label>
-                    <p>
-                        Name
-                    </p>
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </label>
-                <label>
-                    <p>
-                        Description
-                    </p>
-                    <input
-                        id="description"
-                        type="text"
-                        name="description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                </label>
-                <label>
-                    <p>
-                        Image URL
-                    </p>
-                    <input
-                        id="imageUrl"
-                        type="url"
-                        name="imageUrl"
-                        placeholder="https://www.example.com/image.jpg"
-                        value={imageUrl}
-                        onChange={(e) => setImageUrl(e.target.value)}
-                    />
-                </label>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <div className="main-main-main-container">
+            <div className="main-container-create-post">
+                <div className="second-container-create-post">
+                    <form onSubmit={handleSubmit}>
+                        <ul>
+                            {errors.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
+                        <div className="container-img-title-description">
+                            <div>
+                                <label>
+                                    <p>
+                                        Image URL
+                                    </p>
+                                    <input
+                                        id="imageUrl"
+                                        type="url"
+                                        name="imageUrl"
+                                        placeholder="https://www.example.com/image.jpg"
+                                        value={imageUrl}
+                                        onChange={(e) => setImageUrl(e.target.value)}
+                                    />
+                                </label>
+                            </div>
+                            <div className="name-des-user">
+                                <div className="button-save-create">
+                                    <button className="save-button-create-post" type="submit">Save</button>
+                                </div>
+                                <div className="title-container-main">
+                                    <label>
+                                        <textarea
+                                            className="textarea-title"
+                                            id="name"
+                                            placeholder="Add Your Title"
+                                            type="text"
+                                            name="name"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <div className="user-div">
+                                        <div className="nav-bar-profile-button2">
+                                            <i className="fa-solid fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <div className="first-name-create">
+                                                <div className="user-firstname-create">
+                                                    {user.firstName}
+                                                </div>
+                                                <div className="user-lastName-create">
+                                                    {user.lastName}
+                                                </div>
+                                            </div>
+                                            <div className="followers-create">
+                                                This is where the followers will go
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="title-container-main">
+                                    <label>
+                                        <textarea
+                                            className="textarea-title1"
+                                            placeholder="Tell everyone what your Post is about"
+                                            id="description"
+                                            type="text"
+                                            name="description"
+                                            value={description}
+                                            onChange={(e) => setDescription(e.target.value)}
+                                        />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div >
+        </div >
     )
 }
 

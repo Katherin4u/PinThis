@@ -30,9 +30,6 @@
 }
 
 .edit-delete-main-container {
-    position: sticky;
-    top: 80px;
-    z-index: 2;
     background: white;
     border-radius: 15px;
 }
@@ -53,11 +50,19 @@
     border-radius: 100px;
     color: white;
     width: 85%;
+    cursor: pointer;
 }
 
 /* .editmodal3 {
     padding-right: 10px;
 } */
+
+.ksksks{
+    height: 100%;
+    max-height: calc((100vh - 80px) - 16px);
+    width: 508px;
+}
+
 
 .delete-post-button {
     background-color: black;
@@ -147,13 +152,7 @@
 
 }
 
-.comment-form {
-    border-top: 1px solid rgb(239, 239, 239);
-    border-bottom-right-radius: 32px;
-    border-bottom-left-radius: 32px;
-    width: 100%;
-    padding: 20px;
-}
+
 
 .scroll {
     height: 650px;

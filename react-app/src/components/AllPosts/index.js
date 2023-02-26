@@ -29,7 +29,12 @@ const AllPosts = () => {
                     return (
                         <div className='all-post-images'>
                             <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
-                                <img className='img' src={post.imagesUrl}></img>
+                                <div className='getting-overlay'>
+                                <img className='img' src={post.imagesUrl}>
+                                </img>
+                                <div className="overlay"></div>
+
+                                </div>
                             </div>
                         </div>
                     )

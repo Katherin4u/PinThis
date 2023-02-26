@@ -31,53 +31,85 @@ function SignupFormModal() {
 	};
 
 	return (
-		<>
-			<h1>Sign Up</h1>
+		<div className="modal-main-div2">
+			<div className="welcome-to-container">
+				<h1 className="title-modal">Welcome to Pin-It</h1>
+			</div>
 			<form onSubmit={handleSubmit}>
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
-				<label>
-					Email
-					<input
-						type="text"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Age
-					<input
-						type="number"
-						value={age}
-						onChange={(e) => setAge(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Password
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Confirm Password
-					<input
-						type="password"
-						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
-					/>
-				</label>
-				<button type="submit">Sign Up</button>
+				<div className="validation-container1">
+					<ul className="validations2">
+						{errors.map((error, idx) => (
+							<li key={idx}>{error}</li>
+						))}
+					</ul>
+				</div>
+				<div className="login-form-modal-container">
+					<label>
+						<div className="password-name1">
+							Email
+						</div>
+						<div className="input-div">
+
+						<input
+							className="email-input"
+							type="text"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							required
+						/>
+						</div>
+					</label>
+					<label>
+						<div className="password-name">
+							Age
+						</div>
+						<div className="input-div">
+
+						<input
+							className="email-input"
+							type="number"
+							value={age}
+							onChange={(e) => setAge(e.target.value)}
+							required
+						/>
+						</div>
+					</label>
+					<label>
+						<div className="password-name">
+							Password
+						</div>
+						<div className="input-div">
+
+						<input
+							className="email-input"
+							type="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+						</div>
+					</label>
+					<label>
+						<div className="password-name">
+							Confirm Password
+						</div>
+						<div className="input-div">
+
+						<input
+							className="email-input"
+							type="password"
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
+							required
+						/>
+						</div>
+					</label>
+					<div className="login-button-modal-padding">
+						<button className='loginmodal1' type="submit">Sign Up</button>
+					</div>
+				</div>
 			</form>
-		</>
+		</div >
 	);
 }
 
