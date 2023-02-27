@@ -54,6 +54,7 @@ def create_post():
     res = request.get_json()
     post = PostForm()
     post["csrf_token"].data = request.cookies["csrf_token"]
+    
 
     if post.validate_on_submit():
         post = Post(
@@ -62,6 +63,7 @@ def create_post():
             description=res['description']
         )
         image = PostImage(
+            user_id=res['userId'],
             url=res['imageUrl'],
             post=post
         )

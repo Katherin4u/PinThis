@@ -23,6 +23,8 @@ const AllPosts = () => {
     }
 
     return (
+        <div>
+
         <div className='all-post-container'>
             <div className='all-posts'>
                 {postObj.map((post) => {
@@ -41,6 +43,7 @@ const AllPosts = () => {
                 })}
 
             </div>
+        </div>
         </div>
     )
 }
