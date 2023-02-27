@@ -1,0 +1,46 @@
+.button-edit-comment{
+    background-color: light gray;
+    border-radius: 10px;
+    padding: 7px;
+    border: none;
+}
+
+.inside-dropdown3 {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* align-items: center; */
+    background-color: #FFF;
+    top: -90px;
+    right: 90px;
+    border-radius: 15px;
+    padding: 20px 0px;
+    z-index: 2;
+    width: 470px;
+    height: 5em;
+    align-items: center;
+}
+
+.edit-comment-input{
+    width: 25rem;
+    height: 3rem;
+    border-radius: 15px;
+    border: solid black 1px;
+}
+
+.edit-review-submit-button4{
+    background-color: lightgrey;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+    border: none;
+    
+}
+
+.edit-review-submit-button-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 21rem;
+    padding-top: 10px;
+}

@@ -45,6 +45,7 @@ const SinglePost = () => {
         await dispatch(createCommentThunk(postId, payload))
             .then(() => {
                 setComment('')
+                dispatch(loadAllCommentsThunk(postId))
             })
         history.push(`/posts/${postId}/comments`)
     }
@@ -97,7 +98,6 @@ const SinglePost = () => {
 
                 </div>
                 <div className="ksksks">
-
                     <div className="edit-delete-user-container">
                         <div className="edit-delete-main-container">
                             {user && user.id === post.userId && (
@@ -146,9 +146,11 @@ const SinglePost = () => {
                                                 <div>
                                                     {user && user.id === comment.userId && (
                                                         <div>
-                                                            <div>
-                                                                <EditComment props={{ id: comment.id, singleComment: comment.comment }} />
-                                                                <button onClick={(e) => deleteCommentButton(e, comment.id)}>Delete comment</button>
+                                                            <div className="edit-delete-single-comment">
+                                                                <div className='edit-button-single-comment'>
+                                                                    <EditComment className='edit-button-single-comment' props={{ id: comment.id, singleComment: comment.comment }} />
+                                                                </div>
+                                                                <button className="button-edit-comment" onClick={(e) => deleteCommentButton(e, comment.id)}>Delete</button>
                                                             </div>
                                                         </div>
 
@@ -170,23 +172,25 @@ const SinglePost = () => {
                                                 ))}
                                             </ul>
                                             <label>
-                                                <input
-                                                    placeholder="Add a comment"
-                                                    id="comment"
-                                                    type="text"
-                                                    name="comment"
-                                                    value={comment}
-                                                    onChange={(e) => setComment(e.target.value)}
-                                                />
-                                                <div>
-                                                    {/* {user && user.id !== post.userId && (
-                                                        Allcomments.map(comment => comment.userId !== user.id)
-                                                     ) && ( */}
-                                                    <button type="submit">Submit</button>
-                                                    {/* )} */}
-                                                    {/* ): (
-                                                    <div>hi</div>
-                                                    )} */}
+                                                <div className="image-comment-input">
+                                                    <div>
+                                                        <i style={{ width: '32px', height: '32px' }} className="fa-solid fa-user"></i>
+                                                    </div>
+                                                    <div className="input-padding">
+                                                        <input
+                                                            className="add-a-comment-input"
+                                                            placeholder="Add a comment"
+                                                            id="comment"
+                                                            type="text"
+                                                            name="comment"
+                                                            value={comment}
+                                                            onChange={(e) => setComment(e.target.value)}
+                                                        />
+                                                    </div>
+
+                                                </div>
+                                                <div className="edit-review-submit-button-container4">
+                                                    <button className="edit-review-submit-button4" type="submit">Submit</button>
                                                 </div>
                                             </label>
                                         </form>

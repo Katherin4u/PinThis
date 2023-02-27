@@ -19,10 +19,12 @@ class PostImage(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('posts.id')), nullable=False)
     url = db.Column(db.String(500), nullable=False)
 
     post = db.relationship('Post', back_populates='images')
+    user = db.relationship('User', back_populates='images')
 
     @validates('url')
     def validate_url(self, key , url):
@@ -34,6 +36,7 @@ class PostImage(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'userId': self.user_id,
             'postId': self.post_id,
             'url': self.url
         }

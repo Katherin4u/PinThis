@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { loadAllCommentsThunk, updateCommentThunk } from "../../store/comments"
+import './editComment.css'
 
 
 
@@ -44,7 +45,7 @@ const EditComment = ({ props }) => {
     const closeMenu = () => setShowMenu(false);
 
     useEffect(() => {
-        return () => dispatch(loadAllCommentsThunk(postId))
+        dispatch(loadAllCommentsThunk(postId))
     }, [dispatch, postId, comment])
 
     // if (!editComment) return null
@@ -73,22 +74,24 @@ const EditComment = ({ props }) => {
         }
     }
 
+    
+
 
     return (
         <div>
-            <button onClick={openMenu}>
+            <button className="button-edit-comment" onClick={openMenu}>
                 Edit
             </button>
             <ul className={ulClassName} ref={ulRef}>
                 <div className="nav-bar-dropdown-menu-container1">
-                    <div className="edit-review-form">
-                        <form className='edit-review-form' onSubmit={handleSubmit}>
+                    <div className="nav-bar-dropdown-menu1">
+                        <form className='inside-dropdown3' onSubmit={handleSubmit}>
                             <ul className="validation-errors">
                                 {errors.map((error, index) => <li className="errors-text" key={index}>{error}</li>)}
                             </ul>
                             <label>
                                 <input
-
+                                    className="edit-comment-input"
                                     id="comments"
                                     type="text"
                                     name="comment"
@@ -96,8 +99,10 @@ const EditComment = ({ props }) => {
                                     onChange={(e) => setComment(e.target.value)}
                                 />
                             </label>
-                            <div className="edit-review-submit-button-container">
-                                <button className="edit-review-submit-button" type="submit">Submit</button>
+                            <div>
+                                <div className="edit-review-submit-button-container">
+                                    <button className="edit-review-submit-button4" type="submit">Submit</button>
+                                </div>
                             </div>
                         </form>
                     </div>

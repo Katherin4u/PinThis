@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: ee36ac66fd05
+Revision ID: 72e55532fb31
 Revises: 
-Create Date: 2023-02-21 18:39:35.631686
+Create Date: 2023-02-27 14:19:35.668252
 
 """
 from alembic import op
@@ -53,21 +53,16 @@ def upgrade():
     )
     op.create_table('post_images',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('post_id', sa.Integer(), nullable=False),
     sa.Column('url', sa.String(length=500), nullable=False),
     sa.ForeignKeyConstraint(['post_id'], ['posts.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
+    # ### end Alembic commands ###
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
-    if environment == "production":
-        op.execute(f"ALTER TABLE post_images SET SCHEMA {SCHEMA};")
-    # ### end Alembic commands ###
 
 
 def downgrade():
