@@ -1,11 +1,47 @@
 import './splashPage.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const SplashPage = () => {
     const [showText1, setShowText1] = useState(true);
     const [showText2, setShowText2] = useState(false);
     const [direction1, setDirection1] = useState(1);
     const [direction2, setDirection2] = useState(1);
+
+    const [currentPage, setCurrentPage] = useState(0)
+    const [updateInterval, setUpdateInterval] = useState(0)
+    
+    
+    const arrowRef = useRef(null)
+    const pageButtons = ["0", "1", "2", "3"]
+
+    
+    const handleArrow = () => {
+        arrowRef.current?.scrollIntoView({behavior: 'smooth'})
+    }
+
+    const handlePageNav = (page) => {
+        setCurrentPage(parseInt(page));
+        setUpdateInterval((prev) => (prev % 3)+1);
+    }
+
+    let interval;
+    useEffect( () => {
+        interval = setInterval(() => {
+            setCurrentPage( (prevPage) => prevPage+1 )
+        }, 6000);
+    }, []);
+    
+    useEffect( () => {
+        if (updateInterval > 0) {
+            interval = setInterval(() => {
+                setCurrentPage( (prevPage) => prevPage+1 )
+            }, 6000);
+        }
+        
+        return () => {
+            clearInterval(interval)
+        }
+    }, [updateInterval])
 
     const images1 = [
         "https://i.pinimg.com/236x/bf/34/10/bf3410cb7a5c7af07ed6e83ba9bf3dc5.jpg",
@@ -53,23 +89,12 @@ const SplashPage = () => {
 
     return (
         <div className="main-spalshpage-container">
-            {/* <div className="second-main-spashpage-container">
-                <div className="title-contaienr">
-                    <div className="centering-it">
-                        <h1 className="h1-css">Get Your Next</h1>
-                    </div>
-                </div> */}
+            <section>
+
             <div className="buttons-and-text-container">
-                {/* <ul className="main-ul-container"> */}
                 {showText1 && (
                     <div>
-                        {/* <div className="main-ul-container">
-                            <div className={`slide-in-text ${direction1 === 1 ? 'bottom-to-top' : 'top-to-bottom'}`}>
-                                <div className='anime-art'>
-                                    <div>Anime Art</div>
-                                </div>
-                            </div>
-                        </div> */}
+                        
                         <div className='image-main-container-11'>
                             <div class="gradient-overlay1">
 
@@ -98,9 +123,6 @@ const SplashPage = () => {
                     <di>
                         <div className="main-ul-container">
 
-                            {/* <div className={`slide-in-text ${direction2 === 1 ? 'bottom-to-top' : 'top-to-bottom'}`}>
-                                    <div>One Piece</div>
-                                </div> */}
                         </div>
                         <div className='image-main-container-11'>
                             <div class="gradient-overlay1">
@@ -125,8 +147,9 @@ const SplashPage = () => {
                         </div>
                     </di>
                 )}
-                {/* </ul> */}
+                <div className='backgroundColor'>HELLO HOW IS EVERYONE</div>
             </div>
+            </section>
         </div>
         // </div>
     );

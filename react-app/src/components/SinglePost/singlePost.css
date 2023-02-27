@@ -13,19 +13,23 @@
     border-radius: 30px;
 }
 
+.single-image-container{
+     object-fit: cover;
+}
+
 .image-image {
     height: 100%;
     width: 100%;
+    min-height: 600px;
+    min-width: 400px;
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .edit-delete-main-container1 {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    justify-content: center;
 
 }
 
@@ -110,6 +114,8 @@
     min-height: 3;
     min-width: 0;
     overflow: auto;
+    padding-left: 30px;
+    padding-top: 23px
 }
 
 .name-comment {
@@ -155,7 +161,58 @@
 
 
 .scroll {
-    height: 650px;
+    height: 512px;
     overflow: auto;
 
+}
+
+.edit-delete-single-comment{
+    display: flex;
+    
+}
+
+.edit-button-single-comment{
+    padding-right: 10px;
+}
+.comment-form{
+    padding-left: 42px;
+}
+
+.add-a-comment-input{
+    width: 23rem;
+    height: 3rem;
+    border-radius: 13px;
+    border: solid black 1px;
+   
+}
+
+.edit-review-submit-button-container4{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    padding-top: 10px;
+}
+
+.image-comment-input{
+    display: flex;
+}
+
+.input-padding{
+    padding-left: 15px;
+}
+
+
+.fa-solid, .fas {
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+}
+
+.fa-user {
+    color: grey;
+    background-color: lightgrey;
+    padding: 9px;
+    border-radius: 50%;
 }

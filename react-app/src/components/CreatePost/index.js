@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { thunkCreatePost } from "../../store/posts"
+import UploadPicture from "../uploadImage"
 import './createPost.css'
 
 
@@ -15,6 +16,9 @@ const CreatePost = () => {
     const [imageUrl, setImageUrl] = useState('')
     const [errors, setErrors] = useState([])
     const [createdPost, setCreatedPost] = useState()
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
+    
 
     const user = useSelector(state => state.session.user)
 
@@ -25,13 +29,18 @@ const CreatePost = () => {
         const payload = {
             userId: user.id,
             name,
-            description,
-            imageUrl
+            description
         }
+        const formData = new FormData();
+        formData.append("image", image);
+        setImageLoading(true);
 
+        // create post 
         if (!user) return null;
-
         const data = await dispatch(thunkCreatePost(payload))
+        console.log(data)
+
+        // after post is created, we will use postId
 
         if (Array.isArray(data)) {
             setErrors(data);
@@ -42,10 +51,19 @@ const CreatePost = () => {
     }
 
     useEffect(() => {
-        if (createdPost) {
-            history.push(`/posts/${createdPost.id}`)
-        }
+        // if (createdPost) {
+        //     history.push(`/posts/${createdPost.id}`)
+        // }
     }, [createdPost])
+
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        console.log(file)
+        setImage(file);
+    }
+
+
+
 
     return (
         <div className="main-main-main-container">
@@ -59,7 +77,13 @@ const CreatePost = () => {
                         </ul>
                         <div className="container-img-title-description">
                             <div>
-                                <label>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={updateImage}
+                                />
+                                {/* <UploadPicture /> */}
+                                {/* <label>
                                     <p>
                                         Image URL
                                     </p>
@@ -71,7 +95,7 @@ const CreatePost = () => {
                                         value={imageUrl}
                                         onChange={(e) => setImageUrl(e.target.value)}
                                     />
-                                </label>
+                                </label> */}
                             </div>
                             <div className="name-des-user">
                                 <div className="button-save-create">

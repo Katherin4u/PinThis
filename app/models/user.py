@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
 
     comments = db.relationship('Comment', cascade='all, delete-orphan', back_populates='user')
     posts = db.relationship('Post', cascade='all, delete-orphan', back_populates='user')
+    images = db.relationship('PostImage', cascade='all, delete-orphan', back_populates='user')
 
 
 

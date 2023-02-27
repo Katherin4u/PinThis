@@ -13,11 +13,12 @@
 
 
 .nav-container {
-  padding: 1rem 2rem 1rem 5rem;
+  padding: 1rem 2rem 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 3;
   background: white;
+
 }
 
 .Inner-nav-container {
@@ -126,7 +127,7 @@
 
 .second-profile-button {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .container-login-signup {
@@ -186,4 +187,21 @@
   padding-bottom: 5px;
   font-weight: bold;
   border: none;
+}
+
+.logo-img{
+  height: 40px;
+  width: 40px;
+}
+
+.container-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-logo1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
 }
