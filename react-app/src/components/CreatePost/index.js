@@ -31,6 +31,7 @@ const CreatePost = () => {
             name,
             description
         }
+        
         const formData = new FormData();
         formData.append("image", image);
         setImageLoading(true);

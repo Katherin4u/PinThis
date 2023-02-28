@@ -22,4 +22,5 @@ def search():
 
     if products:
         return jsonify([product.to_dict() for product in products])
+    print(products)
     return {}

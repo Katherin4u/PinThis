@@ -9,6 +9,7 @@ import AllPosts from "./components/AllPosts";
 import SinglePost from "./components/SinglePost"
 import SplashPage from "./components/SplashPage";
 import CreatePost from "./components/CreatePost";
+import Search from "./components/search";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <SplashPage />
+          </Route>
+          <Route path='/search'>
+            <Search />
           </Route>
         </Switch>
       )}
