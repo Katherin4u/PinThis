@@ -32,7 +32,7 @@ const deletePost = (undoPost) => ({
 export const thunkGetAllPosts = () => async (dispatch) => {
     const response = await fetch('/api/posts/')
 
-    if (response.ok){
+    if (response.ok) {
         const posts = await response.json()
         dispatch(loadPosts(posts))
         return posts
@@ -42,7 +42,7 @@ export const thunkGetAllPosts = () => async (dispatch) => {
 export const thunkSinglePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`)
 
-    if(response.ok){
+    if (response.ok) {
         const post = await response.json()
         dispatch(loadSinglePost(post))
         return post
@@ -55,6 +55,17 @@ export const thunkCreatePost = (payload) => async (dispatch) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
+    // const res = await fetch(`/api/images/`, {
+    //     method: "POST",
+    //     body: formData,
+    // }).then(
+    //     payload['url'] = res,
+    //     response = await fetch('/api/posts/', {
+    //         method: "POST",
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(payload)
+    //     })
+    // )
 
     if (response.ok) {
         const newPost = await response.json()
@@ -63,21 +74,21 @@ export const thunkCreatePost = (payload) => async (dispatch) => {
     } else if (response.status < 500) {
         const newPost = await response.json()
         if (newPost.errors) {
-			return newPost.errors;
-		}
+            return newPost.errors;
+        }
     } else {
         return ["An error occurred. Please try again."];
     }
 }
 
 export const thunkEditPost = (updatedPost) => async (dispatch) => {
-    console.log('updatedPost', updatedPost)
+
     const response = await fetch(`/api/posts/${updatedPost.id}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedPost)
     })
- 
+
 
     if (response.ok) {
         const updatedPost = await response.json()
@@ -88,7 +99,7 @@ export const thunkEditPost = (updatedPost) => async (dispatch) => {
         const updatedPost = await response.json()
         if (updatedPost.errors) {
             return updatedPost.errors;
-		}
+        }
     } else {
         return ["An error occurred. Please try again."];
     }

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import OpenModalButton from "../OpenModalButton"
 import CreatePost from '../CreatePost';
@@ -8,10 +8,23 @@ import './Navigation.css';
 import CreateButton from './CreateButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import { cleanUpSearchAction, thunkCreateSearch } from '../../store/search';
 
 function Navigation({ isLoaded }) {
+	const [query, setQuery] = useState('');
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory()
+	const dispatch = useDispatch()
+	
+
+	const handleSearch = async (e) => {
+		e.preventDefault();
+
+		dispatch(cleanUpSearchAction())
+		dispatch(thunkCreateSearch(query))
+		setQuery('')
+		history.push('/search')
+	};
 
 	return (
 		<div className='nav-container'>
@@ -33,6 +46,16 @@ function Navigation({ isLoaded }) {
 							)}
 							<i className="fas fa-angle-down"></i>
 						</div>
+					</div>
+					<div className='nav-bar-search-container'>
+						<form onSubmit={handleSearch} className='nav-bar-search-form'>
+							<div className="nav-bar-search-wrapper">
+								<input placeholder="Search for anything" className="nav-bar-search-text-field" type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+								<button type="submit" className="nav-bar-search-button">
+									<i className="fa fa-search"></i>
+								</button>
+							</div>
+						</form>
 					</div>
 					<div className='profile-button-container'>
 						{isLoaded && (
