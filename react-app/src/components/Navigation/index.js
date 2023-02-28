@@ -51,9 +51,7 @@ function Navigation({ isLoaded }) {
 						<form onSubmit={handleSearch} className='nav-bar-search-form'>
 							<div className="nav-bar-search-wrapper">
 								<input placeholder="Search for anything" className="nav-bar-search-text-field" type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-								<button type="submit" className="nav-bar-search-button">
-									<i className="fa fa-search"></i>
-								</button>
+								
 							</div>
 						</form>
 					</div>

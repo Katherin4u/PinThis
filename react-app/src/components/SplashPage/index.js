@@ -7,37 +7,36 @@ const SplashPage = () => {
     const [direction1, setDirection1] = useState(1);
     const [direction2, setDirection2] = useState(1);
 
+
     const [currentPage, setCurrentPage] = useState(0)
     const [updateInterval, setUpdateInterval] = useState(0)
-    
-    
-    const arrowRef = useRef(null)
-    const pageButtons = ["0", "1", "2", "3"]
 
-    
+    const arrowRef = useRef(null)
+
+
     const handleArrow = () => {
-        arrowRef.current?.scrollIntoView({behavior: 'smooth'})
+        arrowRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
 
     const handlePageNav = (page) => {
         setCurrentPage(parseInt(page));
-        setUpdateInterval((prev) => (prev % 3)+1);
+        setUpdateInterval((prev) => (prev % 3) + 1);
     }
 
     let interval;
-    useEffect( () => {
+    useEffect(() => {
         interval = setInterval(() => {
-            setCurrentPage( (prevPage) => prevPage+1 )
+            setCurrentPage((prevPage) => prevPage + 1)
         }, 6000);
     }, []);
-    
-    useEffect( () => {
+
+    useEffect(() => {
         if (updateInterval > 0) {
             interval = setInterval(() => {
-                setCurrentPage( (prevPage) => prevPage+1 )
+                setCurrentPage((prevPage) => prevPage + 1)
             }, 6000);
         }
-        
+
         return () => {
             clearInterval(interval)
         }
@@ -91,64 +90,88 @@ const SplashPage = () => {
         <div className="main-spalshpage-container">
             <section>
 
-            <div className="buttons-and-text-container">
-                {showText1 && (
-                    <div>
-                        
-                        <div className='image-main-container-11'>
-                            <div class="gradient-overlay1">
+                <div className="buttons-and-text-container">
+                    {showText1 && (
+                        <div className='something-test-container'>
 
-                                <div className={`slide-in-text ${direction1 === 1 ? 'bottom-to-top' : 'top-to-bottom'}`}>
-                                    <div className='anime-art'>
-                                        <div className='title-spalsh'>Anime Art</div>
+                            <div className='image-main-container-11'>
+                                <div class="gradient-overlay1">
+
+                                    <div className={`slide-in-text ${direction1 === 1 ? 'bottom-to-top' : 'top-to-bottom'}`}>
+                                        <div className='anime-art'>
+                                            <div className='title-spalsh'>Anime Art</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="slide-in-images">
-                                <div className='all-posts2'>
-                                    {images1.map((image) => (
-                                        <div className='all-post-images1'>
-                                            <div className='image-post-container'>
-                                                <img className='grid-item' key={image} src={image} />
+                                <div className="slide-in-images">
+                                    <div className='all-posts2'>
+                                        {images1.map((image) => (
+                                            <div className='all-post-images1'>
+                                                <div className='image-post-container'>
+                                                    <img className='grid-item' key={image} src={image} />
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
+                                <div class="gradient-overlay"></div>
                             </div>
-                            <div class="gradient-overlay"></div>
+                        </div>
+                    )}
+                    {showText2 && (
+                        <div className='something-test-container'>
+                            <div className="main-ul-container">
+
+                            </div>
+                            <div className='image-main-container-11'>
+                                <div class="gradient-overlay1">
+
+                                    <div className={`slide-in-text ${direction2 === 1 ? 'bottom-to-top' : 'top-to-bottom'}`}>
+                                        <div className='title-spalsh'>One Piece</div>
+
+                                    </div>
+                                </div>
+                                <div className="slide-in-images">
+                                    <div className='all-posts2'>
+                                        {images2.map((image) => (
+                                            <div className='all-post-images1'>
+                                                <div className='image-post-container'>
+                                                    <img className='grid-item' key={image} src={image} />
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div class="gradient-overlay"></div>
+                            </div>
+                        </div>
+                    )}
+                    <div className='backgroundColor'>
+                        <div onClick={handleArrow} className={`second-page-arrow splash-arrow`}>
+                            <i style={{ paddingTop: "20px" }} className="fa-solid fa-chevron-down fa-lg"></i>
                         </div>
                     </div>
-                )}
-                {showText2 && (
-                    <di>
-                        <div className="main-ul-container">
+                    {/* <div>
 
+                    </div> */}
+                </div>
+            </section>
+            <section ref={arrowRef} className="one-and-half-page">
+                <div className="one-and-half-picture-container">
+                    <div className='main-image-for-second-section'>
+                        <div className='this-where-main-image-go'>
+                            <img className='single-section-img' src="https://i.pinimg.com/564x/ff/1a/ae/ff1aae61d5e6eaf5cc1f69804c72d6ea.jpg" />
                         </div>
-                        <div className='image-main-container-11'>
-                            <div class="gradient-overlay1">
-
-                                <div className={`slide-in-text ${direction2 === 1 ? 'bottom-to-top' : 'top-to-bottom'}`}>
-                                    <div className='title-spalsh'>One Piece</div>
-
-                                </div>
-                            </div>
-                            <div className="slide-in-images">
-                                <div className='all-posts2'>
-                                    {images2.map((image) => (
-                                        <div className='all-post-images1'>
-                                            <div className='image-post-container'>
-                                                <img className='grid-item' key={image} src={image} />
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div class="gradient-overlay"></div>
-                        </div>
-                    </di>
-                )}
-                <div className='backgroundColor'>HELLO HOW IS EVERYONE</div>
-            </div>
+                    </div>
+                </div>
+                <div className='text-container'>
+                    <div className='title-section'>
+                        <h1 className='search-anime-title'>Search for more Anime</h1>
+                    </div>
+                    <div>
+                        <h3 className='search-anime-title1'>What anime are you looking for? One Piece? Hajime No Ippo? -- see what you find!</h3>
+                    </div>
+                </div>
             </section>
         </div>
         // </div>

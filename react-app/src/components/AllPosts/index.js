@@ -16,7 +16,7 @@ const AllPosts = () => {
     const posts = useSelector((state) => state.posts.allPosts)
     if (!posts) return null
     const postObj = Object.values(posts)
-    
+
     const ProductClick = (e, id) => {
         e.preventDefault()
         history.push(`/posts/${id}`)
@@ -25,25 +25,23 @@ const AllPosts = () => {
     return (
         <div>
 
-        <div className='all-post-container'>
-            <div className='all-posts'>
-                {postObj.map((post) => {
-                    return (
-                        <div className='all-post-images'>
-                            <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
-                                <div className='getting-overlay'>
-                                <img className='img' src={post.imagesUrl}>
-                                </img>
-                                <div className="overlay"></div>
-
+            <div className='all-post-container'>
+                <div className='all-posts'>
+                    {postObj.map((post) => {
+                        return (
+                            <div className='all-post-images'>
+                                <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
+                                    <div className='getting-overlay'>
+                                        <img className='img' src={post.imagesUrl}></img>
+                                        <div className="overlay"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                })}
+                        )
+                    })}
 
+                </div>
             </div>
-        </div>
         </div>
     )
 }

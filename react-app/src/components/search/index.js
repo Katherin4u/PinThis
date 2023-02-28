@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './search.css'
 
 
 const Search = () => {
@@ -21,8 +22,6 @@ const Search = () => {
 
     return searchRes && (
         <>
-            <h1 className='search-title'>Search results:</h1>
-            <h4 className='search-title search-subheader'>Items matched by name or description</h4>
             <div className='all-search-container'>
                 <div className='mapped-search-container'>
                     <ul className='all-search'>
@@ -30,12 +29,14 @@ const Search = () => {
                             return (
                                 <div className='search-card' key={result.id} onClick={(e) => ProductClick(e, result.id)}>
                                     <div className='search-image-container'>
-                                        <img className='search-image' src={result.imagesUrl} alt='product'></img>
+                                        <div className='getting-overlay'>
+                                            <img className='search-image' src={result.imagesUrl} alt='product'></img>
+                                        </div>
+                                        {/* <div className='search-name-container'>
+                                            {result.name}
+                                        </div> */}
                                     </div>
-                                    <div className = 'search-name-container'>
-                                        {result.name}
-                                    </div>
-                                   
+
                                 </div>
                             )
                         })
