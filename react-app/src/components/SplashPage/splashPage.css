@@ -62,7 +62,7 @@
     animation: slide-in 1s ease forwards;
     position: relative;
     animation-timing-function: ease-in-out;
-
+    margin: 0rem 1rem 0rem 1rem;
 }
 
 .slide-in-images {
@@ -104,7 +104,7 @@
 
 @keyframes slide-in {
     from {
-        transform: translateY(100%);
+        transform: translateY(50%);
 
     }
 
@@ -144,12 +144,11 @@
     animation: slide-in 1s ease forwards;
     position: relative;
     animation-timing-function: ease-in-out;
-
 }
 
 @keyframes slide-in {
     from {
-        transform: translateY(100%);
+        transform: translateY(20%);
     }
 
     to {
@@ -177,12 +176,74 @@
 }
 
 .backgroundColor {
-    background-color:#fffd92;
+    background-color: #fffd92;
     position: absolute;
-    top: 51rem;
+    top: 48rem;
     left: 2px;
     /* background-color: white; */
     width: 100%;
+    height: 15%;
+    z-index: 1;
+    margin: 0rem 1rem 1rem 0rem;
+}
+
+.one-and-half-page {
+    position: absolute;
+    top: 55.5rem;
+    left: 2px;
+    width: 100%;
     height: 100%;
     z-index: 1;
+    /* margin: 0rem 1rem 1rem 0rem; */
+    display: flex;
+    background-color: #fffd92;
+}
+
+.second-page-background {
+    background-color: #fffd92;
+}
+
+.main-image-for-second-section {
+    background-color: #fffd92;
+}
+
+.single-section-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+   
+    align-items: center;
+    background-color: #fffd92;
+    padding-left: 15rem;
+}
+
+.title-section {
+    padding-top: 20rem;
+}
+
+.this-where-main-image-go {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+    padding-top: 10rem;
+    padding-left: 10rem;
+}
+
+.search-anime-title{
+    color: #c31952;
+    font-size: 60px;
+}
+.search-anime-title1{
+    color: #c31952;
+    font-size: 24px;
+}
+
+.something-test-container{
+    height: 49rem;
 }
