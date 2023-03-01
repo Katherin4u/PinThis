@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 const SplashPage = () => {
     const [showText1, setShowText1] = useState(true);
     const [showText2, setShowText2] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
     const [direction1, setDirection1] = useState(1);
     const [direction2, setDirection2] = useState(1);
 
@@ -85,6 +86,23 @@ const SplashPage = () => {
         }, 5000);
         return () => clearInterval(intervalId);
     }, [showText1, showText2]);
+
+    const toggleVisibility = () => {
+        if (window.pageYOffset > 300) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      };
+
+      const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      };
+
+      window.addEventListener("scroll", toggleVisibility);
 
     return (
         <div className="main-spalshpage-container">
@@ -170,6 +188,9 @@ const SplashPage = () => {
                     </div>
                     <div>
                         <h3 className='search-anime-title1'>What anime are you looking for? One Piece? Hajime No Ippo? -- see what you find!</h3>
+                    </div>
+                    <div className={`second-page-arrow splash-arrow`}  style={{display: isVisible ? 'block' : 'none'}}  onClick={scrollToTop}>
+                        <i style={{ paddingTop: "20px" }} className="fa-solid fa-chevron-up fa-lg"></i>
                     </div>
                 </div>
             </section>
