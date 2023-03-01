@@ -55,18 +55,6 @@ export const thunkCreatePost = (payload) => async (dispatch) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
-    // const res = await fetch(`/api/images/`, {
-    //     method: "POST",
-    //     body: formData,
-    // }).then(
-    //     payload['url'] = res,
-    //     response = await fetch('/api/posts/', {
-    //         method: "POST",
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(payload)
-    //     })
-    // )
-
     if (response.ok) {
         const newPost = await response.json()
         dispatch(createPost(newPost))

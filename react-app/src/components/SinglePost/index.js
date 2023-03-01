@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createCommentThunk, deleteCommentThunk, loadAllCommentsThunk } from "../../store/comments";
-import { thunkDeletePost, thunkSinglePost } from "../../store/posts";
+import { createCommentThunk, deleteCommentThunk, loadAllCommentsThunk  } from "../../store/comments";
+import { thunkDeletePost, thunkSinglePost, thunkGetAllPosts } from "../../store/posts";
 import EditPost from "../EditPost";
 import EditComment from "../EditComment";
 import OpenModalButton from "../OpenModalButton";
@@ -24,13 +24,17 @@ const SinglePost = () => {
     useEffect(() => {
         dispatch(loadAllCommentsThunk(postId))
         dispatch(thunkSinglePost(postId)).then(() => setKeepImage(true))
+        dispatch(thunkGetAllPosts())
     }, [dispatch, postId])
 
 
     const user = useSelector((state) => state.session.user)
+    const posts = useSelector((state) => state.posts.allPosts)
     if (!Allcomments) return null
     const comments = Object.values(Allcomments)
     if (!comments) return null
+    if (!posts) return null
+    const postObj = Object.values(posts)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -49,6 +53,7 @@ const SinglePost = () => {
             })
         history.push(`/posts/${postId}/comments`)
     }
+
 
 
     const allComments = []
@@ -83,6 +88,11 @@ const SinglePost = () => {
 
         return true;
     })
+
+    const ProductClick = (e, id) => {
+        e.preventDefault()
+        history.push(`/posts/${id}`)
+    }
 
 
     if (!post) return null
@@ -201,6 +211,23 @@ const SinglePost = () => {
                     </div>
                 </div>
             </div>
+            <div>
+                <h1>Browse for more!</h1>
+            </div>
+            <div className='all-posts1'>
+                    {postObj.map((post) => {
+                        return (
+                            <div className='all-post-images'>
+                                <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
+                                    <div className='getting-overlay'>
+                                        <img className='img' src={post.imagesUrl}></img>
+                                        <div className="overlay"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
         </div >
     )
 }

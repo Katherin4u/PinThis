@@ -18,7 +18,7 @@ const CreatePost = () => {
     const [createdPost, setCreatedPost] = useState()
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    
+
 
     const user = useSelector(state => state.session.user)
 
@@ -29,12 +29,13 @@ const CreatePost = () => {
         const payload = {
             userId: user.id,
             name,
-            description
+            description,
+            imageUrl
         }
-        
-        const formData = new FormData();
-        formData.append("image", image);
-        setImageLoading(true);
+
+        // const formData = new FormData();
+        // formData.append("image", image);
+        // setImageLoading(true);
 
         // create post 
         if (!user) return null;
@@ -52,16 +53,16 @@ const CreatePost = () => {
     }
 
     useEffect(() => {
-        // if (createdPost) {
-        //     history.push(`/posts/${createdPost.id}`)
-        // }
+        if (createdPost) {
+            history.push(`/posts/${createdPost.id}`)
+        }
     }, [createdPost])
 
-    const updateImage = (e) => {
-        const file = e.target.files[0];
-        console.log(file)
-        setImage(file);
-    }
+    // const updateImage = (e) => {
+    //     const file = e.target.files[0];
+    //     console.log(file)
+    //     setImage(file);
+    // }
 
 
 
@@ -77,27 +78,6 @@ const CreatePost = () => {
                             ))}
                         </ul>
                         <div className="container-img-title-description">
-                            <div>
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={updateImage}
-                                />
-                                {/* <UploadPicture /> */}
-                                {/* <label>
-                                    <p>
-                                        Image URL
-                                    </p>
-                                    <input
-                                        id="imageUrl"
-                                        type="url"
-                                        name="imageUrl"
-                                        placeholder="https://www.example.com/image.jpg"
-                                        value={imageUrl}
-                                        onChange={(e) => setImageUrl(e.target.value)}
-                                    />
-                                </label> */}
-                            </div>
                             <div className="name-des-user">
                                 <div className="button-save-create">
                                     <button className="save-button-create-post" type="submit">Save</button>
@@ -145,6 +125,22 @@ const CreatePost = () => {
                                             name="description"
                                             value={description}
                                             onChange={(e) => setDescription(e.target.value)}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        {/* <p>
+                                            Image URL
+                                        </p> */}
+                                        <input
+                                            className="input-image-thing"
+                                            id="imageUrl"
+                                            type="url"
+                                            name="imageUrl"
+                                            placeholder="https://www.example.com/image.jpg"
+                                            value={imageUrl}
+                                            onChange={(e) => setImageUrl(e.target.value)}
                                         />
                                     </label>
                                 </div>
