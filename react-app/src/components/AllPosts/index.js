@@ -35,6 +35,9 @@ const AllPosts = () => {
                                         <img className='img' src={post.imagesUrl}></img>
                                         <div className="overlay"></div>
                                     </div>
+                                    {/* <div className='title-all-posts-page'>
+                                    <div className='title-all-posts-page2' data-text={post.name}>{post.name.slice(0,2)}</div>
+                                    </div> */}
                                 </div>
                             </div>
                         )
