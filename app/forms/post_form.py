@@ -5,12 +5,14 @@ from wtforms.validators import DataRequired, ValidationError
 def name_length(form, field):
     name = field.data
     if len(name) < 3:
-        raise ValidationError('Name must be at least 3 characters.')
+        raise ValidationError('Name must be at least 3 characters long or .')
+    elif len(name) > 80:
+        raise ValidationError('Name must be less than 80 characters long')
     
 
 def description_length(form, field):
     description = field.data
-    if len(description) > 2500 or len(description) < 3:
+    if len(description) > 100or len(description) < 3:
         raise ValidationError('Description must be between 3 and 2500 characters long.')
     
 def images_url_valid(form, field):

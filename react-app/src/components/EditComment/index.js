@@ -68,7 +68,7 @@ const EditComment = ({ props }) => {
         if (Array.isArray(data)) {
             setErrors(data);
         } else {
-            await setComment(data)
+            // await setComment(data)
             history.push(`/posts/${postId}`)
             closeMenu();
         }
