@@ -5,9 +5,14 @@
 
 .all-posts {
     width: 100%;
-    margin: auto;
+    margin: 0;
     column-count: 7;
     padding: 0;
+}
+
+.all-post-container{
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 
@@ -23,6 +28,7 @@
     height: 100%;
     position: relative;
     display: inline-block;
+    image-rendering: crisp-edges;
 }
 
 .overlay {

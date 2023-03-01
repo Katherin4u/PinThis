@@ -1,10 +1,10 @@
 .second-container-create-post {
-    display: flex;
+    /* display: flex; */
     /* align-items: center; */
     justify-content: center;
-    border: solid black;
-    height: 42rem;
-    width: 55rem;
+    /* border: solid black; */
+    height: 35rem;
+    width: 40rem;
 }
 
 .main-container-create-post {
@@ -14,18 +14,9 @@
     padding-top: 30px;
 }
 
-.container-img-title-description {
-    display: flex;
-
-}
-
-.name-des-user {
-    padding-left: 10rem;
-}
-
 .title-container-main {
     padding-bottom: 3rem;
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
 
 .textarea-title {
@@ -87,7 +78,7 @@
 
 .button-save-create{
     display: flex;
-    justify-content: flex-end;
+    padding-left: 17rem;
 }
 
 .save-button-create-post{
@@ -99,4 +90,19 @@
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 25px;
+}
+
+.name-des-user{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-image-thing{
+    padding: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: left ;
+
 }
