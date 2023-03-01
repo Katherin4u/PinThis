@@ -5,7 +5,6 @@ import ProfileButton from './ProfileButton';
 import OpenModalButton from "../OpenModalButton"
 import CreatePost from '../CreatePost';
 import './Navigation.css';
-import CreateButton from './CreateButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import { cleanUpSearchAction, thunkCreateSearch } from '../../store/search';
@@ -41,7 +40,7 @@ function Navigation({ isLoaded }) {
 						<div className='create-post-container'>
 							{isLoaded && (
 								<div>
-									<CreateButton user={sessionUser} />
+									<OpenModalButton className='create-post-input4' buttonText='Create Post' modalComponent={<CreatePost />} />
 								</div>
 							)}
 							<i className="fas fa-angle-down"></i>
