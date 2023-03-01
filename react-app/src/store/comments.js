@@ -42,6 +42,7 @@ export const cleanUpCommentAction = () => {
 
 
 export const loadAllCommentsThunk = (postId) => async dispatch => {
+    console.log('ALL POST ID!!!!!!!!', postId)
     const response = await fetch(`/api/posts/${postId}/comments`);
 
     if (response.ok) {

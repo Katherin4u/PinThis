@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { createCommentThunk, deleteCommentThunk, loadAllCommentsThunk  } from "../../store/comments";
+import { createCommentThunk, deleteCommentThunk, loadAllCommentsThunk } from "../../store/comments";
 import { thunkDeletePost, thunkSinglePost, thunkGetAllPosts } from "../../store/posts";
 import EditPost from "../EditPost";
 import EditComment from "../EditComment";
@@ -20,6 +20,8 @@ const SinglePost = () => {
     const Allcomments = useSelector((state) => state.comments)
 
     const post = useSelector((state) => state.posts.singlePost)
+
+
 
     useEffect(() => {
         dispatch(loadAllCommentsThunk(postId))
@@ -99,7 +101,7 @@ const SinglePost = () => {
     if (!keepImage) return null
 
     return (
-        <div className="single-post-main-container">
+        <div style={{ scrollBehavior: "smooth" }} className="single-post-main-container">
             <div className="second-main-container">
                 <div className="single-image-container">
                     <div className="single-image">
@@ -215,19 +217,21 @@ const SinglePost = () => {
                 <h1>Browse for more!</h1>
             </div>
             <div className='all-posts1'>
-                    {postObj.map((post) => {
-                        return (
-                            <div className='all-post-images'>
-                                <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
-                                    <div className='getting-overlay'>
-                                        <img className='img' src={post.imagesUrl}></img>
-                                        <div className="overlay"></div>
-                                    </div>
+                {postObj.map((post) => {
+                    return (
+                        <div className='all-post-images'>
+                            <div className='image-post-container1' key={post.id} onClick={(e) => {
+                                ProductClick(e, post.id); setTimeout(() => { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }, 400);
+                            }}>
+                                <div className='getting-overlay'>
+                                    <img className='img' src={post.imagesUrl}></img>
+                                    <div className="overlay"></div>
                                 </div>
                             </div>
-                        )
-                    })}
-                </div>
+                        </div>
+                    )
+                })}
+            </div>
         </div >
     )
 }
