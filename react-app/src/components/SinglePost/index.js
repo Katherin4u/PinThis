@@ -97,15 +97,18 @@ const SinglePost = () => {
     }
 
 
+
     if (!post) return null
     if (!keepImage) return null
+
+    const altImg = "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"
 
     return (
         <div style={{ scrollBehavior: "smooth" }} className="single-post-main-container">
             <div className="second-main-container">
                 <div className="single-image-container">
                     <div className="single-image">
-                        <img className="image-image" src={post.imagesUrl}></img>
+                        <img className="image-image" src={post.imagesUrl ? post.imagesUrl : altImg}></img>
                     </div>
 
                 </div>
@@ -125,7 +128,7 @@ const SinglePost = () => {
                                         </div>
                                     </div>
                                     <div className="delete-button-container">
-                                        <button onClick={deleteButton} className="delete-post-button">Delete Product</button>
+                                        <button onClick={deleteButton} className="delete-post-button">Delete Post</button>
                                     </div>
                                 </div>
                             )}
@@ -180,6 +183,7 @@ const SinglePost = () => {
                                         <form onSubmit={handleSubmit}>
                                             <ul>
                                                 {errors.map((error, idx) => (
+                                            
                                                     <li key={idx}>{error}</li>
                                                 ))}
                                             </ul>

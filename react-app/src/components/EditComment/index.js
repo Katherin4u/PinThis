@@ -21,6 +21,7 @@ const EditComment = ({ props }) => {
     const user = useSelector(state => state.session.user)
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
+    const [submitted, setSubmitted] = useState(false);
 
     const openMenu = () => {
         if (showMenu) return;
@@ -56,7 +57,10 @@ const EditComment = ({ props }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setErrors([])
+        if (errors.length > 0) {
+            setSubmitted(true)
+            return;
+        };
 
         const payload = {
             comment
@@ -64,17 +68,18 @@ const EditComment = ({ props }) => {
 
         if (!user) return null
 
-        const data = await dispatch(updateCommentThunk(props.id, payload))
-        if (Array.isArray(data)) {
-            setErrors(data);
-        } else {
+         await dispatch(updateCommentThunk(props.id, payload))
             // await setComment(data)
             history.push(`/posts/${postId}`)
             closeMenu();
-        }
     }
 
-    
+    useEffect(() => {
+        const errors = []
+        if (comment.length < 2) errors.push('Comment must be atleast 2 characters long')
+        if (comment.length > 50) errors.push('Comments must be less than 50 characters long')
+        setErrors(errors)
+    }, [comment])
 
 
     return (
@@ -87,7 +92,7 @@ const EditComment = ({ props }) => {
                     <div className="nav-bar-dropdown-menu1">
                         <form className='inside-dropdown3' onSubmit={handleSubmit}>
                             <ul className="validation-errors">
-                                {errors.map((error, index) => <li className="errors-text" key={index}>{error}</li>)}
+                                {submitted && errors.map((error, index) => <li className="errors-text" key={index}>{error}</li>)}
                             </ul>
                             <label>
                                 <input
