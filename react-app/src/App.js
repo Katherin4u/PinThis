@@ -10,6 +10,7 @@ import SinglePost from "./components/SinglePost"
 import SplashPage from "./components/SplashPage";
 import CreatePost from "./components/CreatePost";
 import Search from "./components/search";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

@@ -22,26 +22,37 @@ const Search = () => {
 
     return searchRes && (
         <>
-            <div className='all-search-container'>
-                <div className='mapped-search-container'>
-                    <ul className='all-search'>
+            <div>
+
+                <div className='all-post-container'>
+                    <div className='all-posts'>
                         {searchArr.map((result) => {
                             return (
-                                <div className='search-card' key={result.id} onClick={(e) => ProductClick(e, result.id)}>
-                                    <div className='search-image-container'>
+                                <div className='all-post-images'>
+                                    <div className='image-post-container' key={result.id} onClick={(e) => ProductClick(e, result.id)}>
                                         <div className='getting-overlay'>
-                                            <img className='search-image' src={result.imagesUrl} alt='product'></img>
-                                        </div>
-                                        {/* <div className='search-name-container'>
-                                            {result.name}
-                                        </div> */}
-                                    </div>
+                                            <div className='getting-overlay'>
+                                                <img className='img' src={result.imagesUrl}></img>
+                                                <div className="overlay"></div>
+                                            </div>
+                                            <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{result.name.slice(0, 13)}</div>
+                                            <div style={{ display: "flex" }}>
+                                                <div style={{ paddingRight: "5px" }}>
+                                                    <i style={{ width: '10px', height: '10px', fontSize: '12px' }} className="fa-solid fa-user"></i>
+                                                </div>
+                                                <div style={{ paddingRight: "5px" }} >{result.firstName}</div>
+                                                <div>{result.lastName}</div>
+                                            </div>
 
+                                        </div>
+                                        <div className='title-all-posts-page'>
+                                        </div>
+                                    </div>
                                 </div>
                             )
-                        })
-                        }
-                    </ul>
+                        })}
+
+                    </div>
                 </div>
             </div>
         </>

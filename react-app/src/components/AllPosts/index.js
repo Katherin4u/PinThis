@@ -14,6 +14,7 @@ const AllPosts = () => {
     }, [dispatch])
 
     const posts = useSelector((state) => state.posts.allPosts)
+    const user = useSelector(state => state.session.user)
     if (!posts) return null
     const postObj = Object.values(posts)
 
@@ -32,12 +33,22 @@ const AllPosts = () => {
                             <div className='all-post-images'>
                                 <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
                                     <div className='getting-overlay'>
-                                        <img className='img' src={post.imagesUrl}></img>
-                                        <div className="overlay"></div>
+                                        <div className='getting-overlay'>
+                                            <img className='img' src={post.imagesUrl}></img>
+                                            <div className="overlay"></div>
+                                        </div>
+                                        <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 13)}</div>
+                                        <div style={{ display: "flex" }}>
+                                            <div style={{paddingRight: "5px"}}>
+                                            <i style={{ width: '10px', height: '10px', fontSize: '12px'}} className="fa-solid fa-user"></i>
+                                            </div>
+                                            <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
+                                            <div>{post.lastName}</div>
+                                        </div>
+
                                     </div>
-                                    {/* <div className='title-all-posts-page'>
-                                    <div className='title-all-posts-page2' data-text={post.name}>{post.name.slice(0,2)}</div>
-                                    </div> */}
+                                    <div className='title-all-posts-page'>
+                                    </div>
                                 </div>
                             </div>
                         )

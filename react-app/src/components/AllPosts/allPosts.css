@@ -13,6 +13,7 @@
 .all-post-container{
     padding-left: 50px;
     padding-right: 50px;
+    padding-bottom: 20px;
 }
 
 
@@ -57,11 +58,11 @@
 .title-all-posts-page{
     font-size: 14px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 50px;
+    /* flex-direction: column; */
+    /* justify-content: space-evenly; */
+    /* height: 50px; */
     text-align: left;
-    text-indent: 10px;
+    /* text-indent: 10px; */
     font-weight: 600;
     color: #211922;
 }
@@ -76,7 +77,7 @@
 
 .title-all-posts-page {
     white-space: nowrap; 
-    overflow: hidden; 
+    /* overflow: hidden;  */
     text-overflow: ellipsis; 
     max-width: 100%; 
   }
@@ -98,4 +99,5 @@
 
   .image-post-container{
     contain: content;
+    cursor: pointer;
   }

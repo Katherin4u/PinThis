@@ -72,15 +72,17 @@ const CreatePost = () => {
             <div className="main-container-create-post">
                 <div className="second-container-create-post">
                     <form onSubmit={handleSubmit}>
-                        <ul>
-                            {errors.map((error, idx) => (
-                                <li key={idx}>{error}</li>
-                            ))}
-                        </ul>
                         <div className="container-img-title-description">
                             <div className="name-des-user">
                                 <div className="button-save-create">
                                     <button className="save-button-create-post" type="submit">Save</button>
+                                </div>
+                                <div className="validation-container3">
+                                    <ul className="validations3">
+                                        {errors.map((error, idx) => (
+                                            <li key={idx}>{error}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                                 <div className="title-container-main">
                                     <label>
