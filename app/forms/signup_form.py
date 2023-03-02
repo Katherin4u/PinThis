@@ -5,14 +5,14 @@ from app.models import User
 
 def valid_first_name(form,field):
     firstName = field.data
-    if len(firstName)< 2 or len(firstName) >20:
-        raise ValidationError('First name must be between 2 and 20 characters')
+    if len(firstName)< 2 or len(firstName) >50:
+        raise ValidationError('First name must be between 2 and 50 characters')
 
 def valid_last_name(form, field):
     lastName = field.data
 
-    if len(lastName)< 2 or len(lastName) > 20:
-        raise ValidationError('Last name must be between 2 and 20 characters')
+    if len(lastName)< 2 or len(lastName) > 50:
+        raise ValidationError('Last name must be between 2 and 50 characters')
 
 def user_exists(form, field):
     # Checking if user exists
@@ -32,14 +32,12 @@ def username_exists(form, field):
 def age_restriction(form, field):
     age = field.data
     if int(age) < 18:
-        raise ValidationError('Sorry, you’re not eligible to sign up for PinIt right now.')
+        raise ValidationError("Sorry, you're not eligible to sign up for PinIt right now.")
 
 
 class SignUpForm(FlaskForm):
     firstName = StringField('firstName', validators=[DataRequired(), valid_first_name] )
     lastName = StringField('lastName', validators=[DataRequired(), valid_last_name])
-    age = IntegerField('age', validators=[DataRequired(), age_restriction])
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    age = IntegerField('age', validators=[ DataRequired(),age_restriction])
+    email = StringField('email', validators=[DataRequired(),user_exists])
     password = StringField('password', validators=[DataRequired()])

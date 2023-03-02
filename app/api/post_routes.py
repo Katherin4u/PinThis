@@ -34,7 +34,9 @@ def all_posts():
             "userId": post['userId'],
             "name": post['name'],
             "description": post['description'],
-            "imagesUrl": post['imagesUrl']
+            "imagesUrl": post['imagesUrl'],
+            'firstName': post['firstName'],
+            'lastName': post['lastName']
         })
     return jsonify(post_res)
 

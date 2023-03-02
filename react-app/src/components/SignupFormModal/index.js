@@ -10,6 +10,8 @@ function SignupFormModal() {
 	const [age, setAge] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
@@ -17,7 +19,7 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(firstName, lastName, age, email, password));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -50,14 +52,38 @@ function SignupFormModal() {
 						</div>
 						<div className="input-div">
 
+							<input
+								className="email-input"
+								type="text"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								required
+							/>
+						</div>
+					</label>
+					<label>
+						<div className="password-name1">
+							firstName
+						</div>
 						<input
 							className="email-input"
 							type="text"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							value={firstName}
+							onChange={(e) => setFirstName(e.target.value)}
 							required
 						/>
+					</label>
+					<label>
+						<div className="password-name1">
+							LastName
 						</div>
+						<input
+							className="email-input"
+							type="text"
+							value={lastName}
+							onChange={(e) => setLastName(e.target.value)}
+							required
+						/>
 					</label>
 					<label>
 						<div className="password-name">
@@ -65,13 +91,13 @@ function SignupFormModal() {
 						</div>
 						<div className="input-div">
 
-						<input
-							className="email-input"
-							type="number"
-							value={age}
-							onChange={(e) => setAge(e.target.value)}
-							required
-						/>
+							<input
+								className="email-input"
+								type="number"
+								value={age}
+								onChange={(e) => setAge(e.target.value)}
+								required
+							/>
 						</div>
 					</label>
 					<label>
@@ -80,13 +106,13 @@ function SignupFormModal() {
 						</div>
 						<div className="input-div">
 
-						<input
-							className="email-input"
-							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							required
-						/>
+							<input
+								className="email-input"
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
 						</div>
 					</label>
 					<label>
@@ -95,13 +121,13 @@ function SignupFormModal() {
 						</div>
 						<div className="input-div">
 
-						<input
-							className="email-input"
-							type="password"
-							value={confirmPassword}
-							onChange={(e) => setConfirmPassword(e.target.value)}
-							required
-						/>
+							<input
+								className="email-input"
+								type="password"
+								value={confirmPassword}
+								onChange={(e) => setConfirmPassword(e.target.value)}
+								required
+							/>
 						</div>
 					</label>
 					<div className="login-button-modal-padding">

@@ -227,8 +227,6 @@
    padding-top: 40px;
 }
 
-/* .image-post-container1 :focus{
-    scroll-behavior: smooth;
-    scroll-behavior: scroll;
-    scroll-margin-top: 0px;
-} */
+.image-post-container1{
+   cursor: pointer;
+}

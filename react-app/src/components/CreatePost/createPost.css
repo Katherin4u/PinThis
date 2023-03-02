@@ -16,7 +16,7 @@
 
 .title-container-main {
     padding-bottom: 3rem;
-    padding-top: 4rem;
+    padding-top: 2rem;
 }
 
 .textarea-title {
@@ -105,4 +105,14 @@
     padding-right: 80px;
     text-align: left ;
 
+}
+
+.validations3 {
+    list-style: none;
+    color: red;
+}
+
+.validation-containe3 {
+    padding-left: 45px;
+    padding-top: 25px;
 }

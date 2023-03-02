@@ -223,10 +223,21 @@ const SinglePost = () => {
                             <div className='image-post-container1' key={post.id} onClick={(e) => {
                                 ProductClick(e, post.id); setTimeout(() => { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }, 400);
                             }}>
-                                <div className='getting-overlay'>
-                                    <img className='img' src={post.imagesUrl}></img>
-                                    <div className="overlay"></div>
-                                </div>
+                                 <div className='getting-overlay'>
+                                        <div className='getting-overlay'>
+                                            <img className='img' src={post.imagesUrl}></img>
+                                            <div className="overlay"></div>
+                                        </div>
+                                        <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 20)}</div>
+                                        <div style={{ display: "flex" }}>
+                                            <div style={{paddingRight: "5px"}}>
+                                            <i style={{ width: '10px', height: '10px', fontSize: '12px'}} className="fa-solid fa-user"></i>
+                                            </div>
+                                            <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
+                                            <div>{post.lastName}</div>
+                                        </div>
+
+                                    </div>
                             </div>
                         </div>
                     )
