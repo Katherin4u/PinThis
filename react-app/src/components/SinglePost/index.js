@@ -17,6 +17,7 @@ const SinglePost = () => {
     const [comment, setComment] = useState()
     const [errors, setErrors] = useState([])
     const [keepImage, setKeepImage] = useState(false)
+    const [showAlert, setShowAlert] = useState(false);
     const Allcomments = useSelector((state) => state.comments)
 
     const post = useSelector((state) => state.posts.singlePost)
@@ -66,18 +67,18 @@ const SinglePost = () => {
     // essentially keying into state.comments.productcomments in a non-intuitive way
     // because useSelector isnt working the way we need it to
 
-    const deleteButton = (async (e) => {
-        e.preventDefault()
-        await dispatch(thunkDeletePost(post))
-        history.push('/posts')
-    })
+    // const deleteButton = (async (e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunkDeletePost(post))
+    //     history.push('/posts')
+    // })
 
 
-    const deleteCommentButton = (async (e, commentId) => {
-        e.preventDefault()
-        await dispatch(deleteCommentThunk(commentId))
-        history.push(`/posts/${postId}`)
-    })
+    // const deleteCommentButton = (async (e, commentId) => {
+    //     e.preventDefault()
+    //     await dispatch(deleteCommentThunk(commentId))
+    //     history.push(`/posts/${postId}`)
+    // })
 
     const checkComments = ((usersId, allTheComments) => {
         for (let i = 0; i < allTheComments.length; i++) {
@@ -95,6 +96,30 @@ const SinglePost = () => {
         e.preventDefault()
         history.push(`/posts/${id}`)
     }
+
+    const deleteButton = (async (e) => {
+        e.preventDefault()
+        setShowAlert(false)
+        await dispatch(thunkDeletePost(post))
+        history.push('/posts')
+    })
+    const CancelButton = (async (e, id) => {
+        e.preventDefault()
+        setShowAlert(false)
+        history.push(`/posts/${id}`)
+    })
+    const deleteCommentButton = (async (e, commentId) => {
+        e.preventDefault()
+        setShowAlert(false)
+        await dispatch(deleteCommentThunk(commentId))
+        history.push(`/posts/${postId}`)
+    })
+    const CancelButton2 = (async (e, id) => {
+        e.preventDefault()
+        setShowAlert(false)
+        history.push(`/posts/${id}`)
+    })
+
 
 
 
@@ -128,7 +153,20 @@ const SinglePost = () => {
                                         </div>
                                     </div>
                                     <div className="delete-button-container">
-                                        <button onClick={deleteButton} className="delete-post-button">Delete Post</button>
+                                        <button onClick={(e) => setShowAlert(true)} className="delete-post-button">Delete Post</button>
+                                        {showAlert && (
+                                            <div className="modal">
+                                                <div className="modal-content">
+                                                    <p>This will delete the entire Post, cant be undone!!</p>
+                                                    <div className="modal-buttons">
+                                                        <button onClick={deleteButton}>OK</button>
+                                                    </div>
+                                                    <div className="modal-buttons">
+                                                        <button onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
@@ -157,7 +195,7 @@ const SinglePost = () => {
                                             <span className="name-comment">
                                                 {<span className="firstname">{comment.firstName}</span>}
                                                 {<span className="lastname">{comment.lastName}</span>}
-                                                {comment.comment}
+                                                {<span className="this-da-comment">{comment.comment}</span>}
                                                 <div>
                                                     {user && user.id === comment.userId && (
                                                         <div>
@@ -165,7 +203,21 @@ const SinglePost = () => {
                                                                 <div className='edit-button-single-comment'>
                                                                     <EditComment className='edit-button-single-comment' props={{ id: comment.id, singleComment: comment.comment }} />
                                                                 </div>
-                                                                <button className="button-edit-comment" onClick={(e) => deleteCommentButton(e, comment.id)}>Delete</button>
+
+                                                                <button className="button-edit-comment" onClick={(e) => setShowAlert(true)}>Delete</button>
+                                                                {showAlert && (
+                                                                    <div className="modal">
+                                                                        <div className="modal-content">
+                                                                            <p>This will delete the entire Comment, cant be undone!!</p>
+                                                                            <div className="modal-buttons">
+                                                                                <button onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
+                                                                            </div>
+                                                                            <div className="modal-buttons">
+                                                                                <button onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                )}
                                                             </div>
                                                         </div>
 
@@ -183,7 +235,7 @@ const SinglePost = () => {
                                         <form onSubmit={handleSubmit}>
                                             <ul>
                                                 {errors.map((error, idx) => (
-                                            
+
                                                     <li key={idx}>{error}</li>
                                                 ))}
                                             </ul>
@@ -227,21 +279,21 @@ const SinglePost = () => {
                             <div className='image-post-container1' key={post.id} onClick={(e) => {
                                 ProductClick(e, post.id); setTimeout(() => { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }, 400);
                             }}>
-                                 <div className='getting-overlay'>
-                                        <div className='getting-overlay'>
-                                            <img className='img' src={post.imagesUrl}></img>
-                                            <div className="overlay"></div>
-                                        </div>
-                                        <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 20)}</div>
-                                        <div style={{ display: "flex" }}>
-                                            <div style={{paddingRight: "5px"}}>
-                                            <i style={{ width: '10px', height: '10px', fontSize: '12px'}} className="fa-solid fa-user"></i>
-                                            </div>
-                                            <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
-                                            <div>{post.lastName}</div>
-                                        </div>
-
+                                <div className='getting-overlay'>
+                                    <div className='getting-overlay'>
+                                        <img className='img' src={post.imagesUrl}></img>
+                                        <div className="overlay"></div>
                                     </div>
+                                    <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 20)}</div>
+                                    <div style={{ display: "flex" }}>
+                                        <div style={{ paddingRight: "5px" }}>
+                                            <i style={{ width: '10px', height: '10px', fontSize: '12px' }} className="fa-solid fa-user"></i>
+                                        </div>
+                                        <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
+                                        <div>{post.lastName}</div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     )

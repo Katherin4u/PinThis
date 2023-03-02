@@ -32,9 +32,8 @@ def upload_image():
 
     url = upload["url"]
     print("***************URL", url)
-    # # flask_login allows us to get the current user from the request
-    # new_image = PostImage(user=current_user, url=url, postId=id)
-    # print(new_image, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+    # flask_login allows us to get the current user from the request
+    # new_image = PostImage(user_id=current_user, url=url, post_id=id)
     # db.session.add(new_image)
     # db.session.commit()
     return {"url": url}

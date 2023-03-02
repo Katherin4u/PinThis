@@ -28,7 +28,7 @@
     max-height: 700px;
     border-bottom-left-radius: 30px;
     border-top-left-radius: 30px;
-    /* object-fit: cover; */
+    object-fit: cover;
 }
 
 .edit-delete-main-container1 {
@@ -99,10 +99,12 @@
     font-size: 35px;
     line-break: auto;
     font-weight: bold;
+    word-break: break-all;
 }
 
 .name-title-css3 {
     line-break: auto;
+    word-break: break-all;
 }
 
 .comments-length {
@@ -111,6 +113,10 @@
     padding-top: 20px;
     font-size: 22px;
     font-weight: bold;
+}
+
+.this-da-comment{
+    word-break: break-all;
 }
 
 .container-holding-comments {
@@ -230,3 +236,28 @@
 .image-post-container1{
    cursor: pointer;
 }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
