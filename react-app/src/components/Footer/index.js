@@ -20,7 +20,7 @@ const Footer = () =>{
                 </div>
                 <div className="third-column">
                     <p style = {{textDecoration:"underline", color:"rgb(30, 30, 30)"}}>Developer:</p>
-                    <p><a href = "https://github.com/Katherin4u"  style={{textDecoration: "none", color:"rgb(30, 30, 30)"}}>Katherin Garcia</a></p>
+                    <p><a href = "https://github.com/Katherin4u" target="_blank" rel="noopener noreferrer" style={{textDecoration: "none", color:"rgb(30, 30, 30)"}}>Katherin Garcia</a></p>
                 </div>
             </div>
             <p style={{color:"rgb(30, 30, 30)"}}>Pin-it is a fake site, only a clone of Pinterest</p>
