@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
@@ -7,20 +7,29 @@ import { useHistory } from "react-router-dom";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
+  const [submitted, setSubmitted] = useState(false);
+  console.log(errors)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setErrors([])
+    if (errors.length > 0) {
+      setSubmitted(true)
+      return;
+    };
+    
     const data = await dispatch(login(email, password));
-    history.push(`/posts`)
     if (data) {
       setErrors(data);
     } else {
-      closeModal()
+      history.push('/posts')
+        closeModal()
     }
   };
   const demoLogin = async (e) => {
@@ -34,6 +43,14 @@ function LoginFormModal() {
     }
   };
 
+  useEffect(() => {
+    const errors = []
+    if (email.length === 0) errors.push('Email Field is required');
+    if (password.length === 0) errors.push('Password is required')
+    if(!email.includes('@' && ".com")) errors.push("Must be a valid email")
+    setErrors(errors)
+  }, [email, password])
+
   return (
     <div >
 
@@ -44,7 +61,7 @@ function LoginFormModal() {
         <form onSubmit={handleSubmit}>
           <div className="validation-container">
             <ul className="validations1">
-              {errors.map((error, idx) => (
+              {submitted && errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
             </ul>

@@ -16,12 +16,16 @@ const EditPost = () => {
     const [description, setDescription] = useState(editPost.description)
     const [imagesUrl, setImagesUrl] = useState(editPost.imagesUrl)
     const [errors, setErrors] = useState([])
+    const [submitted, setSubmitted] = useState(false);
 
     const user = useSelector(state => state.session.user)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setErrors([])
+        if (errors.length > 0) {
+            setSubmitted(true)
+            return;
+        };
 
         const payload = {
             ...editPost,
@@ -32,15 +36,24 @@ const EditPost = () => {
 
         if (!user) return null
 
-        const data = await dispatch(thunkEditPost(payload))
+        await dispatch(thunkEditPost(payload))
 
-        if (Array.isArray(data)) {
-            setErrors(data);
-        } else {
-            history.push(`/posts/${payload.id}`)
-            closeModal();
-        }
+
+        history.push(`/posts/${payload.id}`)
+        closeModal();
+
     }
+
+    useEffect(() => {
+        const errors = []
+        if (name.length === 0) errors.push('Name Field is required');
+        if (description.length === 0) errors.push('Description is required')
+        if (description.length > 100) errors.push('Description must be less than 100 characters long.')
+        if (description.length < 3) errors.push('Description must be at least 3 characters long.')
+        if (name.length > 80) errors.push("Name must be less than 80 characters long.")
+        if (name.length < 3) errors.push("Name must be at least 3 characters long.")
+        setErrors(errors)
+    }, [name, description])
 
 
     return (
@@ -51,7 +64,7 @@ const EditPost = () => {
             <form onSubmit={handleSubmit} >
                 <div className="validation-container1">
                     <ul className="validations2">
-                        {errors.map((error, idx) => (
+                        {submitted && errors.map((error, idx) => (
                             <li key={idx}>{error}</li>
                         ))}
                     </ul>
@@ -62,7 +75,7 @@ const EditPost = () => {
                             Name
                         </div>
                         <input
-                        className="email-input"
+                            className="email-input"
                             id="name"
                             type="text"
                             name="name"
@@ -75,7 +88,7 @@ const EditPost = () => {
                             Description
                         </div>
                         <textarea
-                        className="email-input1"
+                            className="email-input1"
                             id="description"
                             type="text"
                             name="description"
@@ -84,7 +97,7 @@ const EditPost = () => {
                         />
                     </label>
                     <div className="login-button-modal-padding">
-                    <button  className='loginmodal1' type="submit">Submit</button>
+                        <button className='loginmodal1' type="submit">Submit</button>
                     </div>
                 </div>
             </form>

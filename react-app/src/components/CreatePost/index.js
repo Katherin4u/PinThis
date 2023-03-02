@@ -16,15 +16,20 @@ const CreatePost = () => {
     const [imageUrl, setImageUrl] = useState('')
     const [errors, setErrors] = useState([])
     const [createdPost, setCreatedPost] = useState()
-    const [image, setImage] = useState(null);
-    const [imageLoading, setImageLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
 
     const user = useSelector(state => state.session.user)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setErrors([])
+        
+        if (errors.length > 0) {
+            setSubmitted(true)
+            return;
+        };
+
+        
 
         const payload = {
             userId: user.id,
@@ -42,14 +47,9 @@ const CreatePost = () => {
         const data = await dispatch(thunkCreatePost(payload))
         console.log(data)
 
-        // after post is created, we will use postId
-
-        if (Array.isArray(data)) {
-            setErrors(data);
-        } else {
-            await setCreatedPost(data)
-            closeModal();
-        }
+        // after post is created, we will use postId     
+        await setCreatedPost(data)
+        closeModal();
     }
 
     useEffect(() => {
@@ -57,6 +57,25 @@ const CreatePost = () => {
             history.push(`/posts/${createdPost.id}`)
         }
     }, [createdPost])
+
+    useEffect(() => {
+        const errors = []
+        if (description.length === 0) errors.push('Description is required.')
+        if (description.length > 100) errors.push('Description must be less than 100 characters long.')
+        if (description.length < 3) errors.push('Description must be at least 3 characters long.')
+        if (name.length === 0) errors.push('Name Field is required.');
+        if(name.length > 80) errors.push("Name must be less than 80 characters long.")
+        if(name.length < 3) errors.push("Name must be at least 3 characters long.")
+        if(imageUrl.length === 0 ) errors.push('Url is required')
+
+        if (imageUrl && !/^https?:\/\/.+/.test(imageUrl)) {
+            errors.push("Invalid URL");
+          }
+        if(imageUrl.endsWith(('.png', '.jpg', '.gif'))){
+            errors.push ('URL does not contain an image.')
+        }
+        setErrors(errors)
+    }, [name , description, imageUrl])
 
     // const updateImage = (e) => {
     //     const file = e.target.files[0];
@@ -79,7 +98,7 @@ const CreatePost = () => {
                                 </div>
                                 <div className="validation-container3">
                                     <ul className="validations3">
-                                        {errors.map((error, idx) => (
+                                        {submitted && errors.map((error, idx) => (
                                             <li key={idx}>{error}</li>
                                         ))}
                                     </ul>
