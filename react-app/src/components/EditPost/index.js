@@ -48,9 +48,9 @@ const EditPost = () => {
         const errors = []
         if (name.length === 0) errors.push('Name Field is required');
         if (description.length === 0) errors.push('Description is required')
-        if (description.length > 100) errors.push('Description must be less than 100 characters long.')
+        if (description.length > 60) errors.push('Description must be less than 60 characters long.')
         if (description.length < 3) errors.push('Description must be at least 3 characters long.')
-        if (name.length > 80) errors.push("Name must be less than 80 characters long.")
+        if (name.length > 50) errors.push("Name must be less than 50 characters long.")
         if (name.length < 3) errors.push("Name must be at least 3 characters long.")
         setErrors(errors)
     }, [name, description])

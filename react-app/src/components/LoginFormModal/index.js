@@ -19,12 +19,13 @@ function LoginFormModal() {
     e.preventDefault();
 
     setErrors([])
-    if (errors.length > 0) {
-      setSubmitted(true)
-      return;
-    };
+    // if (errors.length > 0) {
+    //   setSubmitted(true)
+    //   return;
+    // };
     
     const data = await dispatch(login(email, password));
+    console.log('dis be data', email)
     if (data) {
       setErrors(data);
     } else {
@@ -43,13 +44,13 @@ function LoginFormModal() {
     }
   };
 
-  useEffect(() => {
-    const errors = []
-    if (email.length === 0) errors.push('Email Field is required');
-    if (password.length === 0) errors.push('Password is required')
-    if(!email.includes('@' && ".com")) errors.push("Must be a valid email")
-    setErrors(errors)
-  }, [email, password])
+  // useEffect(() => {
+  //   const errors = []
+  //   if (email.length === 0) errors.push('Email Field is required');
+  //   if (password.length === 0) errors.push('Password is required')
+  //   if(!email.includes('@' && ".com")) errors.push("Must be a valid email")
+  //   setErrors(errors)
+  // }, [email, password])
 
   return (
     <div >

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
+	const history = useHistory()
 	const [email, setEmail] = useState("");
 	const [age, setAge] = useState('');
 	const [password, setPassword] = useState("");
@@ -26,7 +28,8 @@ function SignupFormModal() {
             return;
         };
 		// if (password === confirmPassword) {
-		const data = await dispatch(signUp(age, firstName, lastName, email, password));
+		await dispatch(signUp(age, firstName, lastName, email, password));
+		history.push('/posts')
 
 		closeModal();
 

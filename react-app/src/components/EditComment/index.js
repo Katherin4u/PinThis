@@ -77,7 +77,7 @@ const EditComment = ({ props }) => {
     useEffect(() => {
         const errors = []
         if (comment.length < 2) errors.push('Comment must be atleast 2 characters long')
-        if (comment.length > 50) errors.push('Comments must be less than 50 characters long')
+        if (comment.length > 80) errors.push('Comments must be less than 80 characters long')
         setErrors(errors)
     }, [comment])
 
