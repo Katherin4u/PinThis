@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
@@ -7,30 +7,39 @@ import "./SignupForm.css";
 function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
-	const [age, setAge] = useState("");
-	const [username, setUsername] = useState("");
+	const [age, setAge] = useState('');
 	const [password, setPassword] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [submitted, setSubmitted] = useState(false);
 	const { closeModal } = useModal();
+
+	console.log(typeof age)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (password === confirmPassword) {
-			const data = await dispatch(signUp(firstName, lastName, age, email, password));
-			if (data) {
-				setErrors(data);
-			} else {
-				closeModal();
-			}
-		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
-		}
+
+		if (errors.length > 0) {
+            setSubmitted(true)
+            return;
+        };
+		// if (password === confirmPassword) {
+		const data = await dispatch(signUp(age, firstName, lastName, email, password));
+
+		closeModal();
+
+
+
 	};
+
+	useEffect(() => {
+        const errors = []
+        if (firstName.length === 0) errors.push('Name Field is required');
+        if (lastName.length === 0) errors.push('Description is required')
+        setErrors(errors)
+    }, [firstName , lastName])
 
 	return (
 		<div className="modal-main-div2">
@@ -40,7 +49,7 @@ function SignupFormModal() {
 			<form onSubmit={handleSubmit}>
 				<div className="validation-container1">
 					<ul className="validations2">
-						{errors.map((error, idx) => (
+						{submitted && errors.map((error, idx) => (
 							<li key={idx}>{error}</li>
 						))}
 					</ul>

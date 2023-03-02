@@ -14,7 +14,6 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    # username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
@@ -37,11 +36,11 @@ class User(db.Model, UserMixin):
             raise ValueError("Last name cannot be longer than 50 characters")
         return last_name
     
-    # @validates('age')
-    # def validate_last_name(self, key, last_name):
-    #     if int(age) < 18:
-    #         raise ValueError("Sorry, you're not eligible to sign up for Pin-It right now.")
-    #     return last_name
+    @validates('age')
+    def validate_age(self, key, age):
+        if int(age) < 18:
+            raise ValueError("Sorry, you're not eligible to sign up for Pin-It right now.")
+        return age
 
     # @validates('username')
     # def validate_username(self, key, username):
