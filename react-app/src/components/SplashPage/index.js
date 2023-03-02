@@ -53,7 +53,7 @@ const SplashPage = () => {
         "https://i.pinimg.com/236x/bc/6b/b9/bc6bb9d714ed6f2d1d4a3f1b8a7d2ce4.jpg",
         "https://i.pinimg.com/236x/37/ff/f6/37fff6210e4f360778131f6cab61d007.jpg",
         "https://i.pinimg.com/236x/44/b9/e1/44b9e136feea52facfbe7b198660ac0c.jpg",
-        "https://i.pinimg.com/236x/92/7a/ca/927aca932e66f7c1de404bc3500bc880.jpg",
+        "https://i.pinimg.com/236x/44/b9/e1/44b9e136feea52facfbe7b198660ac0c.jpg",
         "https://i.pinimg.com/236x/ff/fa/9f/fffa9f9c1e428024384f0cb6478fa213.jpg",
         "https://i.pinimg.com/236x/ba/db/35/badb35dea7c5cb2522b36b7d50348c5e.jpg",
         "https://i.pinimg.com/236x/8e/91/a9/8e91a9a35524c358adae9a1daa765622.jpg",
@@ -166,7 +166,7 @@ const SplashPage = () => {
                     )}
                     <div className='backgroundColor'>
                         <div onClick={handleArrow} className={`second-page-arrow splash-arrow`}>
-                            <i style={{ paddingTop: "20px" }} className="fa-solid fa-chevron-down fa-lg"></i>
+                            <i style={{ paddingTop: "20px" , cursor: "pointer"}} className="fa-solid fa-chevron-down fa-lg"></i>
                         </div>
                     </div>
                     {/* <div>
@@ -190,7 +190,7 @@ const SplashPage = () => {
                         <h3 className='search-anime-title1'>What anime are you looking for? One Piece? Hajime No Ippo? -- see what you find!</h3>
                     </div>
                     <div className={`second-page-arrow splash-arrow`}  style={{display: isVisible ? 'block' : 'none'}}  onClick={scrollToTop}>
-                        <i style={{ paddingTop: "20px" }} className="fa-solid fa-chevron-up fa-lg"></i>
+                        <i style={{ paddingTop: "20px", cursor: "pointer" }} className="fa-solid fa-chevron-up fa-lg"></i>
                     </div>
                 </div>
             </section>

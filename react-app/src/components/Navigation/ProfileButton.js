@@ -56,7 +56,7 @@ function ProfileButton({ user }) {
                 </div>
                 <div className="user-email">{user.email}</div>
                 <div className="logout-button-user">
-                  <button onClick={handleLogout}>Log Out</button>
+                  <button className="this-is-logout-button" onClick={handleLogout}>Log Out</button>
                 </div>
               </div>
             </div>

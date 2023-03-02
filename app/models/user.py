@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.orm import validates
 
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -12,15 +13,17 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    age = db.Column(db.Integer, nullable=False)
+    # username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    comments = db.relationship('Comment', cascade='all, delete-orphan', back_populates='user')
-    posts = db.relationship('Post', cascade='all, delete-orphan', back_populates='user')
-    images = db.relationship('PostImage', cascade='all, delete-orphan', back_populates='user')
-
-
+    comments = db.relationship(
+        'Comment', cascade='all, delete-orphan', back_populates='user')
+    posts = db.relationship(
+        'Post', cascade='all, delete-orphan', back_populates='user')
+    images = db.relationship(
+        'PostImage', cascade='all, delete-orphan', back_populates='user')
 
     @validates('first_name')
     def validate_first_name(self, key, first_name):
@@ -33,12 +36,18 @@ class User(db.Model, UserMixin):
         if len(last_name) > 50:
             raise ValueError("Last name cannot be longer than 50 characters")
         return last_name
+    
+    # @validates('age')
+    # def validate_last_name(self, key, last_name):
+    #     if int(age) < 18:
+    #         raise ValueError("Sorry, you're not eligible to sign up for Pin-It right now.")
+    #     return last_name
 
-    @validates('username')
-    def validate_username(self, key, username):
-        if len(username) > 50:
-            raise ValueError("Username cannot be longer than 50 characters")
-        return username
+    # @validates('username')
+    # def validate_username(self, key, username):
+    #     if len(username) > 50:
+    #         raise ValueError("Username cannot be longer than 50 characters")
+    #     return username
 
     @validates('email')
     def validate_email(self, key, email):
@@ -60,8 +69,9 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'firstName':self.first_name,
+            'age': self.age,
+            'firstName': self.first_name,
             'lastName': self.last_name,
-            'username': self.username,
+            # 'username': self.username,
             'email': self.email
         }

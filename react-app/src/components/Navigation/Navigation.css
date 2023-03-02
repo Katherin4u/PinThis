@@ -242,4 +242,18 @@
 .create-post-input4{
   padding-right: 5px;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.this-is-logout-button{
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+}
+.logout-button-user :hover{
+  background-color: #e9e9e9;
 }
