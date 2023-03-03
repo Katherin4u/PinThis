@@ -1,3 +1,57 @@
+# Pin-It
+
+ Pin-it is a clone of Pinterest, all about anime, you are able to browse and look for anything related to anime. The user can post and comment as well as search
+ for anything that they are specifically looking for.
+ 
+ * https://pin-it.onrender.com/
+ 
+ 
+# Tech Stack
+
+* Javascript
+* python
+* Html
+* css
+* Redux
+* React
+* Render
+* wtForms
+* SqlAlchemy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.
