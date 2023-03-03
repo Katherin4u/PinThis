@@ -23,13 +23,13 @@ const CreatePost = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
+
         if (errors.length > 0) {
             setSubmitted(true)
             return;
         };
 
-        
+
 
         const payload = {
             userId: user.id,
@@ -64,18 +64,18 @@ const CreatePost = () => {
         if (description.length > 60) errors.push('Description must be less than 60 characters long.')
         if (description.length < 3) errors.push('Description must be at least 3 characters long.')
         if (name.length === 0) errors.push('Name Field is required.');
-        if(name.length > 50) errors.push("Name must be less than 50 characters long.")
-        if(name.length < 3) errors.push("Name must be at least 3 characters long.")
-        if(imageUrl.length === 0 ) errors.push('Url is required')
+        if (name.length > 50) errors.push("Name must be less than 50 characters long.")
+        if (name.length < 3) errors.push("Name must be at least 3 characters long.")
+        if (imageUrl.length === 0) errors.push('Url is required')
 
         if (imageUrl && !/^https?:\/\/.+/.test(imageUrl)) {
             errors.push("Invalid URL");
-          }
-        if(imageUrl.endsWith(('.png', '.jpg', '.gif'))){
-            errors.push ('URL does not contain an image.')
+        }
+        if (imageUrl.endsWith(('.png', '.jpg', '.gif'))) {
+            errors.push('URL does not contain an image.')
         }
         setErrors(errors)
-    }, [name , description, imageUrl])
+    }, [name, description, imageUrl])
 
     // const updateImage = (e) => {
     //     const file = e.target.files[0];
@@ -106,6 +106,8 @@ const CreatePost = () => {
                                 <div className="title-container-main">
                                     <label>
                                         <textarea
+                                            minLength={3}
+                                            maxLength={50}
                                             className="textarea-title"
                                             id="name"
                                             placeholder="Add Your Title"
@@ -139,6 +141,8 @@ const CreatePost = () => {
                                 <div className="title-container-main">
                                     <label>
                                         <textarea
+                                            minLength={3}
+                                            maxLength={60}
                                             className="textarea-title1"
                                             placeholder="Tell everyone what your Post is about"
                                             id="description"

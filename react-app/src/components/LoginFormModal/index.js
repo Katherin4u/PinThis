@@ -23,14 +23,14 @@ function LoginFormModal() {
     //   setSubmitted(true)
     //   return;
     // };
-    
+
     const data = await dispatch(login(email, password));
-    console.log('dis be data', email)
-    if (data) {
-      setErrors(data);
+    if (Array.isArray(data)) {
+      const formattedData = data.map((data) => data.split(': ')[1])
+      setErrors(formattedData);
     } else {
       history.push('/posts')
-        closeModal()
+      closeModal()
     }
   };
   const demoLogin = async (e) => {
@@ -62,7 +62,7 @@ function LoginFormModal() {
         <form onSubmit={handleSubmit}>
           <div className="validation-container">
             <ul className="validations1">
-              {submitted && errors.map((error, idx) => (
+              {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
             </ul>
@@ -75,7 +75,7 @@ function LoginFormModal() {
               <div className="input-div">
 
                 <input
-
+                  minLength={15}
                   className="email-input"
                   type="text"
                   value={email}
@@ -90,6 +90,7 @@ function LoginFormModal() {
               </div>
               <div className="input-div">
                 <input
+                  minLength={5}
                   className="password-input"
                   type="password"
                   value={password}
