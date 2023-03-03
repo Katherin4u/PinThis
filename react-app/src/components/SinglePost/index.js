@@ -18,6 +18,7 @@ const SinglePost = () => {
     const [errors, setErrors] = useState([])
     const [keepImage, setKeepImage] = useState(false)
     const [showAlert, setShowAlert] = useState(false);
+    const [showAlert2, setShowAlert2] = useState(false);
     const Allcomments = useSelector((state) => state.comments)
 
     const post = useSelector((state) => state.posts.singlePost)
@@ -99,13 +100,13 @@ const SinglePost = () => {
 
     const deleteButton = (async (e) => {
         e.preventDefault()
-        setShowAlert(false)
+        setShowAlert2(false)
         await dispatch(thunkDeletePost(post))
         history.push('/posts')
     })
     const CancelButton = (async (e, id) => {
         e.preventDefault()
-        setShowAlert(false)
+        setShowAlert2(false)
         history.push(`/posts/${id}`)
     })
     const deleteCommentButton = (async (e, commentId) => {
@@ -126,14 +127,14 @@ const SinglePost = () => {
     if (!post) return null
     if (!keepImage) return null
 
-    const altImg = "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"
+    
 
     return (
         <div style={{ scrollBehavior: "smooth" }} className="single-post-main-container">
             <div className="second-main-container">
                 <div className="single-image-container">
                     <div className="single-image">
-                        <img className="image-image" src={post.imagesUrl ? post.imagesUrl : altImg}></img>
+                        <img className="image-image" src={post.imagesUrl}  onError={e => { e.currentTarget.src = "https://ih1.redbubble.net/image.485923678.1240/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg"; }} ></img>
                     </div>
 
                 </div>
@@ -153,16 +154,16 @@ const SinglePost = () => {
                                         </div>
                                     </div>
                                     <div className="delete-button-container">
-                                        <button onClick={(e) => setShowAlert(true)} className="delete-post-button">Delete Post</button>
-                                        {showAlert && (
+                                        <button onClick={(e) => setShowAlert2(true)} className="delete-post-button">Delete Post</button>
+                                        {showAlert2 && (
                                             <div className="modal">
                                                 <div className="modal-content">
-                                                    <p>This will delete the entire Post, cant be undone!!</p>
+                                                    <p style={{fontWeight: "bold"}}>This will delete the entire Post, cant be undone!!</p>
                                                     <div className="modal-buttons">
-                                                        <button onClick={deleteButton}>OK</button>
+                                                        <button style={{paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}} onClick={deleteButton}>OK</button>
                                                     </div>
                                                     <div className="modal-buttons">
-                                                        <button onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
+                                                        <button style={{paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}}  onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,12 +209,12 @@ const SinglePost = () => {
                                                                 {showAlert && (
                                                                     <div className="modal">
                                                                         <div className="modal-content">
-                                                                            <p>This will delete the entire Comment, cant be undone!!</p>
+                                                                            <p style={{fontWeight: "bold"}}>This will delete the entire Comment, cant be undone!!</p>
                                                                             <div className="modal-buttons">
-                                                                                <button onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
+                                                                                <button style={{paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}} onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
                                                                             </div>
                                                                             <div className="modal-buttons">
-                                                                                <button onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
+                                                                                <button style={{paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}} onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -250,6 +251,8 @@ const SinglePost = () => {
                                                             placeholder="Add a comment"
                                                             id="comment"
                                                             type="text"
+                                                            minLength={2}
+                                                            maxLength={80}
                                                             name="comment"
                                                             value={comment}
                                                             onChange={(e) => setComment(e.target.value)}
@@ -270,7 +273,7 @@ const SinglePost = () => {
                 </div>
             </div>
             <div>
-                <h1>Browse for more!</h1>
+                <h1 className="browse-for-more">Browse for more!</h1>
             </div>
             <div className='all-posts1'>
                 {postObj.map((post) => {
@@ -286,7 +289,7 @@ const SinglePost = () => {
                                     </div>
                                     <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 20)}</div>
                                     <div style={{ display: "flex" }}>
-                                        <div style={{ paddingRight: "5px" }}>
+                                        <div className="profile-single-post-all-posts" style={{ paddingRight: "5px" }}>
                                             <i style={{ width: '10px', height: '10px', fontSize: '12px' }} className="fa-solid fa-user"></i>
                                         </div>
                                         <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
