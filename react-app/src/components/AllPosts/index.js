@@ -39,7 +39,7 @@ const AllPosts = () => {
                                         </div>
                                         <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 13)}</div>
                                         <div style={{ display: "flex" }}>
-                                            <div style={{paddingRight: "5px"}}>
+                                            <div className='the-profile-picture-all-posts' style={{paddingRight: "5px"}}>
                                             <i style={{ width: '10px', height: '10px', fontSize: '12px'}} className="fa-solid fa-user"></i>
                                             </div>
                                             <div style={{ paddingRight: "5px" }} >{post.firstName}</div>

@@ -8,6 +8,7 @@
 #modal-content {
     border-radius: 20px;
     z-index: 9999;
+    top: 95px
 }
 #modal{
     z-index: 2;
@@ -17,7 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .title-modal {
@@ -51,12 +52,12 @@
 
 
 .password-name {
-    padding-top: 10px;
+    padding-top: 5px;
     padding-bottom: 10px;
 }
 
 .password-name1 {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 10px;
 }
 
@@ -87,7 +88,7 @@
 }
 
 .validation-container {
-    padding-left: 45px;
+    padding-left: 114px;
 }
 
 .onChange {

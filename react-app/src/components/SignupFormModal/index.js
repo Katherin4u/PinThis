@@ -15,34 +15,33 @@ function SignupFormModal() {
 	const [lastName, setLastName] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
-	const [submitted, setSubmitted] = useState(false);
+
 	const { closeModal } = useModal();
 
 	console.log(typeof age)
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setErrors([])
 
-		if (errors.length > 0) {
-            setSubmitted(true)
-            return;
-        };
-		// if (password === confirmPassword) {
-		await dispatch(signUp(age, firstName, lastName, email, password));
-		history.push('/posts')
+		if (password === confirmPassword) {
+			const data = await dispatch(signUp(age, firstName, lastName, email, password));
+			if (Array.isArray(data)) {
+				const formattedData = data.map((data) => data.split(': ')[1])
+				setErrors(formattedData);
 
-		closeModal();
-
-
-
+			} else {
+				history.push('/posts')
+				closeModal();
+			}
+		} else {
+			setErrors([
+				"Confirm Password and Password field must match",
+			]);
+		}
 	};
 
-	useEffect(() => {
-        const errors = []
-        if (firstName.length === 0) errors.push('Name Field is required');
-        if (lastName.length === 0) errors.push('Description is required')
-        setErrors(errors)
-    }, [firstName , lastName])
+
 
 	return (
 		<div className="modal-main-div2">
@@ -52,10 +51,11 @@ function SignupFormModal() {
 			<form onSubmit={handleSubmit}>
 				<div className="validation-container1">
 					<ul className="validations2">
-						{submitted && errors.map((error, idx) => (
+						{errors.map((error, idx) => (
 							<li key={idx}>{error}</li>
 						))}
 					</ul>
+
 				</div>
 				<div className="login-form-modal-container">
 					<label>
@@ -65,6 +65,7 @@ function SignupFormModal() {
 						<div className="input-div">
 
 							<input
+								minLength={15}
 								className="email-input"
 								type="text"
 								value={email}
@@ -78,6 +79,8 @@ function SignupFormModal() {
 							firstName
 						</div>
 						<input
+							minLength={2}
+							maxLength={50}
 							className="email-input"
 							type="text"
 							value={firstName}
@@ -90,6 +93,8 @@ function SignupFormModal() {
 							LastName
 						</div>
 						<input
+							minLength={2}
+							maxLength={50}
 							className="email-input"
 							type="text"
 							value={lastName}
@@ -98,7 +103,7 @@ function SignupFormModal() {
 						/>
 					</label>
 					<label>
-						<div className="password-name">
+						<div className="password-name1">
 							Age
 						</div>
 						<div className="input-div">
@@ -113,12 +118,13 @@ function SignupFormModal() {
 						</div>
 					</label>
 					<label>
-						<div className="password-name">
+						<div className="password-name1">
 							Password
 						</div>
 						<div className="input-div">
 
 							<input
+							minLength={5}
 								className="email-input"
 								type="password"
 								value={password}
@@ -128,7 +134,7 @@ function SignupFormModal() {
 						</div>
 					</label>
 					<label>
-						<div className="password-name">
+						<div className="password-name1">
 							Confirm Password
 						</div>
 						<div className="input-div">

@@ -101,3 +101,28 @@
     contain: content;
     cursor: pointer;
   }
+
+  @media (min-width: 1px) and (max-width: 1030px) {
+   .nav-bar-profile-button{
+    padding-right: 25px;
+   }
+
+  .nav-bar-profile-button > .fa-solid{
+    padding-right: 15px;
+  }
+
+  .all-post-container{
+    padding-left: 29px;
+    padding-right: 26px;
+  }
+  
+  .the-profile-picture-all-posts > .fa-solid{
+    padding-right: 10px;
+  }
+
+  .nav-bar-profile-button2 > .fa-solid{
+    padding-right: 10px;
+  }
+   
+    
+}

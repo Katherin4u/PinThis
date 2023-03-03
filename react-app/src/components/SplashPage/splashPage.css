@@ -247,3 +247,81 @@
 .something-test-container{
     height: 49rem;
 }
+
+@media (min-width: 1px) and (max-width: 1030px) {
+    .gradient-overlay1 {
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        position: absolute;
+        top: 25rem;
+        left: 20rem;
+        /* background-color: white; */
+        width: 30%;
+        height: 20%;
+        z-index: 1;
+    }
+
+    .backgroundColor {
+        background-color: #fffd92;
+        position: absolute;
+        top: 50rem;
+        left: 2px;
+        /* background-color: white; */
+        width: 100%;
+        height: 15%;
+        z-index: 1;
+        margin: 0rem 1rem 1rem 0rem;
+    }
+
+    .fa-solid{
+        padding-right: 60px;
+    }
+    
+    .text-container{
+        padding-left: 30px;
+        padding-right: 40px;
+    }
+
+    .search-anime-title{
+        word-break:unset;
+    }
+    .search-anime-title1{
+        word-break:unset;
+    }
+    .search-anime-title1{
+        word-break:unset;
+        padding-right: 50px;
+    }
+
+    .single-section-img{
+        height: 30rem;
+        width: 20rem;
+    }
+
+    .this-where-main-image-go{
+        padding-left: 30px;
+    }
+
+    .container-login-signup{
+        padding-right: 50px;
+    }
+
+    .gradient-overlay{
+        top: 30px;
+    }
+
+    .search-profile-picture > .fa-solid{
+        padding-right: 10px;
+    }
+
+    .image-ppp > .fa-solid{
+        padding-right: 10px;
+    }
+
+    .all-posts1{
+        width: 95% ;
+    }
+
+    .profile-single-post-all-posts > .fa-solid{
+        padding-right: 10px;
+    }
+}

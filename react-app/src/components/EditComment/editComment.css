@@ -18,9 +18,14 @@
     padding: 20px 0px;
     z-index: 5;
     width: 470px;
-    height: 5em;
+    height: 8em;
     align-items: center;
     
+}
+.errors-text{
+    list-style: none;
+    color: red;
+    padding-bottom: 10px;
 }
 
 .edit-comment-input{
