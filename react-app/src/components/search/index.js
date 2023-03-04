@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
 import './search.css'
 
 
 const Search = () => {
+
     const history = useHistory()
 
     const searchRes = useSelector((state) => state.search)
@@ -19,6 +21,7 @@ const Search = () => {
         e.preventDefault()
         history.push(`/posts/${id}`)
     }
+
 
     return searchRes && (
         <>
@@ -57,6 +60,8 @@ const Search = () => {
             </div>
         </>
     )
+
+
 }
 
 
