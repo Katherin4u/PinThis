@@ -11,6 +11,7 @@ import SplashPage from "./components/SplashPage";
 import CreatePost from "./components/CreatePost";
 import Search from "./components/search";
 import Footer from "./components/Footer";
+import NotFound from "./components/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path='/search'>
             <Search />
+          </Route>
+          <Route to='/'>
+            <NotFound />
           </Route>
         </Switch>
       )}
