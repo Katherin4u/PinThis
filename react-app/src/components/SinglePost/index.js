@@ -7,6 +7,7 @@ import EditPost from "../EditPost";
 import EditComment from "../EditComment";
 import OpenModalButton from "../OpenModalButton";
 import './singlePost.css'
+import Loading from "../LoadingCircle";
 
 
 
@@ -16,7 +17,7 @@ const SinglePost = () => {
     const { postId } = useParams()
     const [comment, setComment] = useState()
     const [errors, setErrors] = useState([])
-    const [keepImage, setKeepImage] = useState(false)
+    const [keepImage, setKeepImage] = useState(true)
     const [showAlert, setShowAlert] = useState(false);
     const [showAlert2, setShowAlert2] = useState(false);
     const Allcomments = useSelector((state) => state.comments)
@@ -27,7 +28,7 @@ const SinglePost = () => {
 
     useEffect(() => {
         dispatch(loadAllCommentsThunk(postId))
-        dispatch(thunkSinglePost(postId)).then(() => setKeepImage(true))
+        dispatch(thunkSinglePost(postId)).then(() => setKeepImage(false))
         dispatch(thunkGetAllPosts())
     }, [dispatch, postId])
 
@@ -125,185 +126,187 @@ const SinglePost = () => {
 
 
     if (!post) return null
-    if (!keepImage) return null
+    // if (!keepImage) return null
 
-    
 
-    return (
-        <div style={{ scrollBehavior: "smooth" }} className="single-post-main-container">
-            <div className="second-main-container">
-                <div className="single-image-container">
-                    <div className="single-image">
-                        <img className="image-image" src={post.imagesUrl}  onError={e => { e.currentTarget.src = "https://ih1.redbubble.net/image.485923678.1240/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg"; }} ></img>
-                    </div>
-
-                </div>
-                <div className="ksksks">
-                    <div className="edit-delete-user-container">
-                        <div className="edit-delete-main-container">
-                            {user && user.id === post.userId && (
-                                <div className="edit-delete-main-container1">
-
-                                    <div className="edit-modal-container">
-                                        <div className='editmodal3'>
-                                            <OpenModalButton
-                                                className='editmodal3'
-                                                buttonText='Edit Post'
-                                                modalComponent={<EditPost />}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="delete-button-container">
-                                        <button onClick={(e) => setShowAlert2(true)} className="delete-post-button">Delete Post</button>
-                                        {showAlert2 && (
-                                            <div className="modal">
-                                                <div className="modal-content">
-                                                    <p style={{fontWeight: "bold"}}>This will delete the entire Post, cant be undone!!</p>
-                                                    <div className="modal-buttons">
-                                                        <button style={{paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}} onClick={deleteButton}>OK</button>
-                                                    </div>
-                                                    <div className="modal-buttons">
-                                                        <button style={{paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}}  onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
+    const display = () => {
+        return (
+            <div style={{ scrollBehavior: "smooth" }} className="single-post-main-container">
+                <div className="second-main-container">
+                    <div className="single-image-container">
+                        <div className="single-image">
+                            <img className="image-image" src={post.imagesUrl} onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png"; }} ></img>
                         </div>
-                        <div>
-                            <div className="scroll">
-                                <div className="rando-div">
-                                    <div className="user-container">
-                                        <div className="name-title-css">
-                                            {post.name}
-                                        </div>
-                                    </div>
-                                    <div className="user-container3">
-                                        <div className="name-title-css3">
-                                            {post.description}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="comments-length">{`${allComments.length} Comments`}</div>
-                                <div className="container-holding-comments">
-                                    {allComments?.map((comment) => (
-                                        <div className="main-component-first-last-comment">
-                                            <div className="image-ppp">
-                                                <i className="fa-solid fa-user"></i>
+
+                    </div>
+                    <div className="ksksks">
+                        <div className="edit-delete-user-container">
+                            <div className="edit-delete-main-container">
+                                {user && user.id === post.userId && (
+                                    <div className="edit-delete-main-container1">
+
+                                        <div className="edit-modal-container">
+                                            <div className='editmodal3'>
+                                                <OpenModalButton
+                                                    className='editmodal3'
+                                                    buttonText='Edit Post'
+                                                    modalComponent={<EditPost />}
+                                                />
                                             </div>
-                                            <span className="name-comment">
-                                                {<span className="firstname">{comment.firstName}</span>}
-                                                {<span className="lastname">{comment.lastName}</span>}
-                                                {<span className="this-da-comment">{comment.comment}</span>}
-                                                <div>
-                                                    {user && user.id === comment.userId && (
-                                                        <div>
-                                                            <div className="edit-delete-single-comment">
-                                                                <div className='edit-button-single-comment'>
-                                                                    <EditComment className='edit-button-single-comment' props={{ id: comment.id, singleComment: comment.comment }} />
-                                                                </div>
-
-                                                                <button className="button-edit-comment" onClick={(e) => setShowAlert(true)}>Delete</button>
-                                                                {showAlert && (
-                                                                    <div className="modal">
-                                                                        <div className="modal-content">
-                                                                            <p style={{fontWeight: "bold"}}>This will delete the entire Comment, cant be undone!!</p>
-                                                                            <div className="modal-buttons">
-                                                                                <button style={{paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}} onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
-                                                                            </div>
-                                                                            <div className="modal-buttons">
-                                                                                <button style={{paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px"}} onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-                                                    )}
-                                                </div>
-                                            </span>
                                         </div>
-                                    ))}
-                                </div>
+                                        <div className="delete-button-container">
+                                            <button onClick={(e) => setShowAlert2(true)} className="delete-post-button">Delete Post</button>
+                                            {showAlert2 && (
+                                                <div className="modal">
+                                                    <div className="modal-content">
+                                                        <p style={{ fontWeight: "bold" }}>This will delete the entire Post, cant be undone!!</p>
+                                                        <div className="modal-buttons">
+                                                            <button style={{ paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={deleteButton}>OK</button>
+                                                        </div>
+                                                        <div className="modal-buttons">
+                                                            <button style={{ paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             <div>
-                                {checkComments(user.id, allComments) &&
-
-                                    <div className="comment-form">
-                                        <form onSubmit={handleSubmit}>
-                                            <ul>
-                                                {errors.map((error, idx) => (
-
-                                                    <li key={idx}>{error}</li>
-                                                ))}
-                                            </ul>
-                                            <label>
-                                                <div className="image-comment-input">
-                                                    <div>
-                                                        <i style={{ width: '32px', height: '32px' }} className="fa-solid fa-user"></i>
-                                                    </div>
-                                                    <div className="input-padding">
-                                                        <input
-                                                            className="add-a-comment-input"
-                                                            placeholder="Add a comment"
-                                                            id="comment"
-                                                            type="text"
-                                                            minLength={2}
-                                                            maxLength={80}
-                                                            name="comment"
-                                                            value={comment}
-                                                            onChange={(e) => setComment(e.target.value)}
-                                                        />
-                                                    </div>
-
-                                                </div>
-                                                <div className="edit-review-submit-button-container4">
-                                                    <button className="edit-review-submit-button4" type="submit">Submit</button>
-                                                </div>
-                                            </label>
-                                        </form>
+                                <div className="scroll">
+                                    <div className="rando-div">
+                                        <div className="user-container">
+                                            <div className="name-title-css">
+                                                {post.name}
+                                            </div>
+                                        </div>
+                                        <div className="user-container3">
+                                            <div className="name-title-css3">
+                                                {post.description}
+                                            </div>
+                                        </div>
                                     </div>
-                                }
+                                    <div className="comments-length">{`${allComments.length} Comments`}</div>
+                                    <div className="container-holding-comments">
+                                        {allComments?.map((comment) => (
+                                            <div className="main-component-first-last-comment">
+                                                <div className="image-ppp">
+                                                    <i className="fa-solid fa-user"></i>
+                                                </div>
+                                                <span className="name-comment">
+                                                    {<span className="firstname">{comment.firstName}</span>}
+                                                    {<span className="lastname">{comment.lastName}</span>}
+                                                    {<span className="this-da-comment">{comment.comment}</span>}
+                                                    <div>
+                                                        {user && user.id === comment.userId && (
+                                                            <div>
+                                                                <div className="edit-delete-single-comment">
+                                                                    <div className='edit-button-single-comment'>
+                                                                        <EditComment className='edit-button-single-comment' props={{ id: comment.id, singleComment: comment.comment }} />
+                                                                    </div>
+
+                                                                    <button className="button-edit-comment" onClick={(e) => setShowAlert(true)}>Delete</button>
+                                                                    {showAlert && (
+                                                                        <div className="modal">
+                                                                            <div className="modal-content">
+                                                                                <p style={{ fontWeight: "bold" }}>This will delete the entire Comment, cant be undone!!</p>
+                                                                                <div className="modal-buttons">
+                                                                                    <button style={{ paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
+                                                                                </div>
+                                                                                <div className="modal-buttons">
+                                                                                    <button style={{ paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+
+                                                        )}
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div>
+                                    {checkComments(user.id, allComments) &&
+
+                                        <div className="comment-form">
+                                            <form onSubmit={handleSubmit}>
+                                                <ul>
+                                                    {errors.map((error, idx) => (
+
+                                                        <li key={idx}>{error}</li>
+                                                    ))}
+                                                </ul>
+                                                <label>
+                                                    <div className="image-comment-input">
+                                                        <div>
+                                                            <i style={{ width: '32px', height: '32px' }} className="fa-solid fa-user"></i>
+                                                        </div>
+                                                        <div className="input-padding">
+                                                            <input
+                                                                className="add-a-comment-input"
+                                                                placeholder="Add a comment"
+                                                                id="comment"
+                                                                type="text"
+                                                                minLength={2}
+                                                                maxLength={80}
+                                                                name="comment"
+                                                                value={comment}
+                                                                onChange={(e) => setComment(e.target.value)}
+                                                            />
+                                                        </div>
+
+                                                    </div>
+                                                    <div className="edit-review-submit-button-container4">
+                                                        <button className="edit-review-submit-button4" type="submit">Submit</button>
+                                                    </div>
+                                                </label>
+                                            </form>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <h1 className="browse-for-more">Browse for more!</h1>
-            </div>
-            <div className='all-posts1'>
-                {postObj.map((post) => {
-                    return (
-                        <div className='all-post-images'>
-                            <div className='image-post-container1' key={post.id} onClick={(e) => {
-                                ProductClick(e, post.id); setTimeout(() => { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }, 400);
-                            }}>
-                                <div className='getting-overlay'>
+                <div>
+                    <h1 className="browse-for-more">Browse for more!</h1>
+                </div>
+                <div className='all-posts1'>
+                    {postObj.map((post) => {
+                        return (
+                            <div className='all-post-images'>
+                                <div className='image-post-container1' key={post.id} onClick={(e) => {
+                                    ProductClick(e, post.id); setTimeout(() => { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }, 400);
+                                }}>
                                     <div className='getting-overlay'>
-                                        <img className='img' src={post.imagesUrl}></img>
-                                        <div className="overlay"></div>
-                                    </div>
-                                    <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 20)}</div>
-                                    <div style={{ display: "flex" }}>
-                                        <div className="profile-single-post-all-posts" style={{ paddingRight: "5px" }}>
-                                            <i style={{ width: '10px', height: '10px', fontSize: '12px' }} className="fa-solid fa-user"></i>
+                                        <div className='getting-overlay'>
+                                            <img className='img' src={post.imagesUrl}></img>
+                                            <div className="overlay"></div>
                                         </div>
-                                        <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
-                                        <div>{post.lastName}</div>
-                                    </div>
+                                        <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 20)}</div>
+                                        <div style={{ display: "flex" }}>
+                                            <div className="profile-single-post-all-posts" style={{ paddingRight: "5px" }}>
+                                                <i style={{ width: '10px', height: '10px', fontSize: '12px' }} className="fa-solid fa-user"></i>
+                                            </div>
+                                            <div style={{ paddingRight: "5px" }} >{post.firstName}</div>
+                                            <div>{post.lastName}</div>
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                })}
-            </div>
-        </div >
-    )
+                        )
+                    })}
+                </div>
+            </div >
+        )
+    }
+    return keepImage ? <Loading /> : display()
 }
 
 export default SinglePost
