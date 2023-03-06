@@ -12,6 +12,7 @@ import CreatePost from "./components/CreatePost";
 import Search from "./components/search";
 import Footer from "./components/Footer";
 import NotFound from "./components/PageNotFound";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path='/search'>
             <Search />
+          </Route>
+          <Route path='/profile'>
+            <UserProfile />
           </Route>
           <Route to='/'>
             <NotFound />

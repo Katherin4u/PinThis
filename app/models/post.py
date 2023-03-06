@@ -17,6 +17,7 @@ class Post(db.Model):
     user = db.relationship('User', back_populates='posts')
     comments = db.relationship('Comment', cascade='all, delete-orphan', back_populates='post')
     images = db.relationship('PostImage', cascade="all, delete-orphan", back_populates="post")
+    likes = db.relationship('Like', cascade="all, delete-orphan", back_populates="post")
 
     @validates('name')
     def validate_name(self, key , name):

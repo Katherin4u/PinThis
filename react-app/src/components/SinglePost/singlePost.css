@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
+
 }
 
 .second-main-container {
@@ -16,8 +16,8 @@
     border-radius: 30px;
 }
 
-.single-image-container{
-     object-fit: cover;
+.single-image-container {
+    object-fit: cover;
 }
 
 .image-image {
@@ -34,7 +34,7 @@
 .edit-delete-main-container1 {
     display: flex;
     justify-content: space-around;
-   
+
 }
 
 .edit-delete-main-container {
@@ -65,7 +65,7 @@
     padding-right: 10px;
 } */
 
-.ksksks{
+.ksksks {
     height: 100%;
     max-height: calc((100vh - 80px) - 16px);
     width: 508px;
@@ -115,7 +115,7 @@
     font-weight: bold;
 }
 
-.this-da-comment{
+.this-da-comment {
     word-break: break-all;
 }
 
@@ -169,44 +169,46 @@
 }
 
 
-.edit-delete-single-comment{
+.edit-delete-single-comment {
     display: flex;
-    
+
 }
 
-.edit-button-single-comment{
+.edit-button-single-comment {
     padding-right: 10px;
 }
-.comment-form{
+
+.comment-form {
     padding-left: 42px;
     padding-bottom: 50px;
 }
 
-.add-a-comment-input{
+.add-a-comment-input {
     width: 23rem;
     height: 3rem;
     border-radius: 13px;
     border: solid black 1px;
-   
+
 }
 
-.edit-review-submit-button-container4{
+.edit-review-submit-button-container4 {
     display: flex;
     justify-content: flex-end;
     padding-right: 2rem;
     padding-top: 10px;
 }
 
-.image-comment-input{
+.image-comment-input {
     display: flex;
 }
 
-.input-padding{
+.input-padding {
     padding-left: 15px;
 }
 
 
-.fa-solid, .fas {
+.fa-solid,
+.fas {
     font-weight: 900;
     display: flex;
     justify-content: center;
@@ -221,20 +223,20 @@
     border-radius: 50%;
 }
 
-.container-holding-comments{
+.container-holding-comments {
     overflow-y: scroll;
     height: 13rem;
 }
 
-.all-posts1{
+.all-posts1 {
     width: 80%;
     margin: 0;
     column-count: 7;
-   padding-top: 40px;
+    padding-top: 40px;
 }
 
-.image-post-container1{
-   cursor: pointer;
+.image-post-container1 {
+    cursor: pointer;
 }
 
 .modal {
@@ -248,23 +250,50 @@
     justify-content: center;
     align-items: center;
     z-index: 3;
-  }
+}
 
-  .modal-content {
+.modal-content {
     background-color: white;
     border-radius: 40px;
     padding: 29px;
     text-align: center;
-  }
+}
 
-  
-  
-  .modal-buttons {
+
+
+.modal-buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-  }
+}
 
-  .browse-for-more{
+
+.this-the-hover-button {
+    padding-Left: 30px;
+    padding-Right: 30px;
+    padding-Top: 5px;
+    padding-Bottom: 5px;
+    border: none;
+    background-Color: #e9e9e9;
+    border-Radius: 10px;
+}
+.this-the-hover-button:hover {
+    background-color: rgb(206, 206, 206);
+}
+.this-the-hover-button1:hover {
+    background-color: rgb(206, 206, 206);
+}
+
+.this-the-hover-button1 {
+    padding-Left: 20px;
+    padding-Right: 20px;
+    padding-Top: 5px;
+    padding-Bottom: 5px;
+    border: none;
+    background-Color: #e9e9e9;
+    border-Radius: 10px;
+}
+
+.browse-for-more {
     padding-top: 20px;
-  }
+}
