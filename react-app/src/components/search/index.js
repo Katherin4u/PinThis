@@ -15,7 +15,7 @@ const Search = () => {
 
     const searchArr = Object.values(searchRes)
     console.log(searchArr)
-    if (!searchArr.length) return <h1 className='search-title'>No results</h1>
+    if (searchArr.length === 0) return <h1 className='search-title'>No results</h1>
 
     const ProductClick = (e, id) => {
         e.preventDefault()
