@@ -39,7 +39,6 @@ const searchReducer = (state = initialState, action) => {
     let newState
 
     switch (action.type){
- 
         case CREATE_SEARCH:
             if(Object.keys(action.results).length > 0){
                 newState = { ...state }
