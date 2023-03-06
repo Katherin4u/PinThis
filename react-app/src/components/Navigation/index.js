@@ -11,16 +11,17 @@ import { cleanUpSearchAction, thunkCreateSearch } from '../../store/search';
 
 function Navigation({ isLoaded }) {
 	const [query, setQuery] = useState('');
+	console.log('query', query)
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory()
 	const dispatch = useDispatch()
+	console.log('query!!!!!!!!!!!!!!!!!', query)
 	
 
 	const handleSearch = async (e) => {
 		e.preventDefault();
-
-		dispatch(thunkCreateSearch(query))
 		dispatch(cleanUpSearchAction())
+		dispatch(thunkCreateSearch(query))
 		setQuery('')
 		history.push('/search')
 	};
