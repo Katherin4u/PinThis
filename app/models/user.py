@@ -23,6 +23,8 @@ class User(db.Model, UserMixin):
         'Post', cascade='all, delete-orphan', back_populates='user')
     images = db.relationship(
         'PostImage', cascade='all, delete-orphan', back_populates='user')
+    likes = db.relationship(
+        'Like', cascade='all, delete-orphan', back_populates='user')
 
     @validates('first_name')
     def validate_first_name(self, key, first_name):

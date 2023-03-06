@@ -1,0 +1,29 @@
+.created-title-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.container-profile-name-likes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-picture > .fa-user {
+    font-size: 30px;
+}
+
+.user-profile-name{
+    display: flex;
+    padding-top: 10px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.images-posted-by-user{
+    margin: 3rem;
+}

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from ..models import db, Post, PostImage, Comment
+from ..models import db, Post, PostImage, Comment, Like
 from ..forms.post_form import PostForm
 from ..forms.comment_form import CommentForm
 from flask_login import current_user, login_required
@@ -151,3 +151,19 @@ def post_comment(id):
         db.session.commit()
         return form.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+# @post_routes.route('/<int:id>/likes', methods=['POST'])
+# @login_required
+# def create_like(id):
+#     postId = Post.query.get(id)
+#     like = Like.query.filter_by(
+#          postId=postId, user_id=current_user.id).first()
+#     if like:
+#         return 'You have already liked this post', 400
+
+#     like = Like(postId=postId, user_id=current_user.id)
+#     db.session.add(like)
+#     db.session.commit()
+
+#     return 'Post liked successfully', 201
