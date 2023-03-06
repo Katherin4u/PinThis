@@ -76,7 +76,7 @@ function SignupFormModal() {
 					</label>
 					<label>
 						<div className="password-name1">
-							firstName
+							First Name
 						</div>
 						<input
 							minLength={2}
@@ -90,7 +90,7 @@ function SignupFormModal() {
 					</label>
 					<label>
 						<div className="password-name1">
-							LastName
+							Last Name
 						</div>
 						<input
 							minLength={2}
