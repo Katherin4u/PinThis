@@ -10,7 +10,7 @@ const Search = () => {
     const history = useHistory()
 
     const searchRes = useSelector((state) => state.search)
-    console.log(searchRes)
+
     if (!searchRes) return null
 
     const searchArr = Object.values(searchRes)

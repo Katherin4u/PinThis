@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 @search_routes.route('', methods=['GET', 'POST'])
 def search():
     query = request.args.get('q')
-    products = Post.query.filter(or_(Post.name.like("%" + query.upper() + "%"),  Post.description.like("%" + query.lower() and query.upper() + "%"))).all()
+    products = Post.query.filter(or_(Post.name.like("%" + query.upper() + "%"),  Post.description.like("%" + query.upper() + "%"))).all()
 
     if products:
         return jsonify([product.to_dict() for product in products])
