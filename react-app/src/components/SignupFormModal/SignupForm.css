@@ -7,13 +7,16 @@
 
 
 .validations2{
-    padding-right: 6px;
+    /* padding-right: 6px; */
     list-style: none;
-    padding-left: 43px;
+    /* padding-left: 40px; */
     color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-main-div2 {
     height: 47rem;
-    width: 25rem;
+    width: 30rem;
 }
