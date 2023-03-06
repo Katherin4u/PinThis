@@ -19,8 +19,8 @@ function Navigation({ isLoaded }) {
 	const handleSearch = async (e) => {
 		e.preventDefault();
 
-		dispatch(cleanUpSearchAction())
 		dispatch(thunkCreateSearch(query))
+		dispatch(cleanUpSearchAction())
 		setQuery('')
 		history.push('/search')
 	};
