@@ -18,19 +18,19 @@
 * wtForms
 * SqlAlchemy
 
+# Pin-it photos
 
+![image](https://user-images.githubusercontent.com/107587143/222997958-4cc8097b-6262-4fb3-bd28-7acfa72dde3e.png)
 
+* splash page
 
+![image](https://user-images.githubusercontent.com/107587143/222998020-aec551a5-d908-490a-992d-081238a49330.png)
 
+* main page for all posts created
 
+![image](https://user-images.githubusercontent.com/107587143/222998090-35cc2f07-6ecf-4dd0-8cb8-59ae4233c740.png)
 
-
-
-
-
-
-
-
+* single post page, with all the details about the post
 
 
 
