@@ -161,10 +161,10 @@ const SinglePost = () => {
                                                     <div className="modal-content">
                                                         <p style={{ fontWeight: "bold" }}>This will delete the entire Post, cant be undone!!</p>
                                                         <div className="modal-buttons">
-                                                            <button style={{ paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={deleteButton}>OK</button>
+                                                            <button className="this-the-hover-button" onClick={deleteButton}>OK</button>
                                                         </div>
                                                         <div className="modal-buttons">
-                                                            <button style={{ paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
+                                                            <button className="this-the-hover-button1" onClick={(e) => CancelButton(e, post.id)}>Cancel</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,10 +212,10 @@ const SinglePost = () => {
                                                                             <div className="modal-content">
                                                                                 <p style={{ fontWeight: "bold" }}>This will delete the entire Comment, cant be undone!!</p>
                                                                                 <div className="modal-buttons">
-                                                                                    <button style={{ paddingLeft: "40px", paddingRight: "40px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
+                                                                                    <button className="this-the-hover-button" onClick={(e) => deleteCommentButton(e, comment.id)}>OK</button>
                                                                                 </div>
                                                                                 <div className="modal-buttons">
-                                                                                    <button style={{ paddingLeft: "30px", paddingRight: "30px", paddingTop: "5px", paddingBottom: "5px", border: 'none', backgroundColor: 'lightgrey', borderRadius: "10px" }} onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
+                                                                                    <button className="this-the-hover-button1" onClick={(e) => CancelButton2(e, post.id)}>Cancel</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -241,30 +241,33 @@ const SinglePost = () => {
                                                         <li key={idx}>{error}</li>
                                                     ))}
                                                 </ul>
-                                                <label>
-                                                    <div className="image-comment-input">
-                                                        <div>
-                                                            <i style={{ width: '32px', height: '32px' }} className="fa-solid fa-user"></i>
-                                                        </div>
-                                                        <div className="input-padding">
-                                                            <input
-                                                                className="add-a-comment-input"
-                                                                placeholder="Add a comment"
-                                                                id="comment"
-                                                                type="text"
-                                                                minLength={2}
-                                                                maxLength={80}
-                                                                name="comment"
-                                                                value={comment}
-                                                                onChange={(e) => setComment(e.target.value)}
-                                                            />
-                                                        </div>
+                                                {user.id !== post.userId &&
+                                                    <label>
+                                                        <div className="image-comment-input">
+                                                            <div>
+                                                                <i style={{ width: '32px', height: '32px' }} className="fa-solid fa-user"></i>
+                                                            </div>
+                                                            <div className="input-padding">
+                                                                <input
+                                                                    className="add-a-comment-input"
+                                                                    placeholder="Add a comment"
+                                                                    id="comment"
+                                                                    type="text"
+                                                                    minLength={2}
+                                                                    maxLength={80}
+                                                                    name="comment"
+                                                                    value={comment}
+                                                                    onChange={(e) => setComment(e.target.value)}
+                                                                />
+                                                            </div>
 
-                                                    </div>
-                                                    <div className="edit-review-submit-button-container4">
-                                                        <button className="edit-review-submit-button4" type="submit">Submit</button>
-                                                    </div>
-                                                </label>
+                                                        </div>
+                                                        <div className="edit-review-submit-button-container4">
+                                                            <button className="edit-review-submit-button4" type="submit">Submit</button>
+                                                        </div>
+                                                    </label>
+
+                                                }
                                             </form>
                                         </div>
                                     }

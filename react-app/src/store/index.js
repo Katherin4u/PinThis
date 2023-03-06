@@ -4,12 +4,14 @@ import session from './session'
 import postReducer from './posts';
 import commentsReducer from './comments';
 import searchReducer from './search';
+import likesReducer from './likes';
 
 const rootReducer = combineReducers({
   session,
   posts: postReducer,
   comments: commentsReducer,
-  search: searchReducer
+  search: searchReducer,
+  likes: likesReducer
 });
 
 

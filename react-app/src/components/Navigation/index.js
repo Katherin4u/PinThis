@@ -34,12 +34,12 @@ function Navigation({ isLoaded }) {
 							<img className='logo-img' src='https://pngimg.com/d/letter_p_PNG108.png'></img>
 						</div>
 
-						<div className='home-link'>
-							<NavLink className='navlink-text' exact to="/posts">Home</NavLink>
-						</div>
+						{/* <div className='home-link'> */}
+							<NavLink className='home-link' exact to="/posts">Home</NavLink>
+						{/* </div> */}
 						<div className='create-post-container'>
 							{isLoaded && (
-								<div>
+								<div className='create-post-input4'>
 									<OpenModalButton className='create-post-input4' buttonText='Create Post' modalComponent={<CreatePost />} />
 								</div>
 							)}
@@ -71,15 +71,15 @@ function Navigation({ isLoaded }) {
 							</div>
 							<div className='container-login-signup'>
 								<div className='login'>
-									<div className='loginmodal'>
+									{/* <div className='loginmodal'> */}
 										<OpenModalButton
 											className='loginmodal'
 											buttonText='Login'
 											modalComponent={<LoginFormModal />}
 										/>
-									</div>
+									{/* </div> */}
 								</div>
-								<div className='Signup'>
+								<div className='Signup1'>
 									{/* <div className='singup-modal-text'>Sign Up</div> */}
 									<OpenModalButton
 										className='Signup'
