@@ -85,7 +85,7 @@ const SinglePost = () => {
     const checkComments = ((usersId, allTheComments) => {
         for (let i = 0; i < allTheComments.length; i++) {
             const currentCom = allTheComments[i];
-            console.log(currentCom['userId'] == usersId)
+
             if (currentCom['userId'] == usersId) {
                 return false;
             }
