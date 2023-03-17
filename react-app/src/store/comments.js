@@ -42,7 +42,7 @@ export const cleanUpCommentAction = () => {
 
 
 export const loadAllCommentsThunk = (postId) => async dispatch => {
-    console.log('ALL POST ID!!!!!!!!', postId)
+    
     const response = await fetch(`/api/posts/${postId}/comments`);
 
     if (response.ok) {
@@ -62,7 +62,7 @@ export const createCommentThunk = (postId, newComment) => async dispatch => {
 
     if (response.ok) {
         const createdComment = await response.json()
-        console.log('createdComment', createdComment)
+        
         dispatch(createCommentAction(createdComment))
         return createdComment;
     } else if (response.status < 500) {
@@ -77,7 +77,7 @@ export const createCommentThunk = (postId, newComment) => async dispatch => {
 };
 
 export const updateCommentThunk = (id, comments) => async dispatch => {
-    console.log('comment^^^^^^^^^^^^', comments)
+    
     const response = await fetch(`/api/comments/${id}`, {
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },

@@ -13,8 +13,7 @@ function LoginFormModal() {
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
   const [submitted, setSubmitted] = useState(false);
-  console.log(errors)
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -75,7 +74,7 @@ function LoginFormModal() {
               <div className="input-div">
 
                 <input
-                  minLength={15}
+                  minLength={5}
                   className="email-input"
                   type="text"
                   value={email}

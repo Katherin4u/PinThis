@@ -18,7 +18,7 @@ function SignupFormModal() {
 
 	const { closeModal } = useModal();
 
-	console.log(typeof age)
+	
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -65,7 +65,7 @@ function SignupFormModal() {
 						<div className="input-div">
 
 							<input
-								minLength={15}
+								minLength={5}
 								className="email-input"
 								type="text"
 								value={email}

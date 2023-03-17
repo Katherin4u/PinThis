@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useDebugValue, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { addLikeThunk } from '../../store/likes';
 
 import './search.css'
 
@@ -8,18 +9,35 @@ import './search.css'
 const Search = () => {
 
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const searchRes = useSelector((state) => state.search)
+    const user = useSelector(state => state.session.user)
+    const posts = useSelector((state) => state.posts.allPosts)
+
+    if (!posts) return null
+    const postObj = Object.values(posts)
 
     if (!searchRes) return null
 
     const searchArr = Object.values(searchRes)
-    console.log(searchArr)
-    if (searchArr.length === 0) return <h1 className='search-title'>No results</h1>
+
+    if (!searchArr.length) return <h1 className='search-title'>No results</h1>
 
     const ProductClick = (e, id) => {
         e.preventDefault()
         history.push(`/posts/${id}`)
+    }
+
+    const handleLike = (e, id) => {
+        e.preventDefault()
+        const data = {
+            post_id: id,
+            user_id: user.id
+        }
+
+        dispatch(addLikeThunk(data))
+        history.push('/profile')
     }
 
 
@@ -32,6 +50,18 @@ const Search = () => {
                         {searchArr.map((result) => {
                             return (
                                 <div className='all-post-images'>
+                                    {postObj.map((post) => {
+                                        return (
+
+                                            <div>
+                                                {user && user.id !== post.userId && (
+                                                    <div className='save-like-button'>
+                                                        <button className='save-button-overlay' onClick={(e) => handleLike(e, post.id)}>Save</button>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )
+                                     })}
                                     <div className='image-post-container' key={result.id} onClick={(e) => ProductClick(e, result.id)}>
                                         <div className='getting-overlay'>
                                             <div className='getting-overlay'>
