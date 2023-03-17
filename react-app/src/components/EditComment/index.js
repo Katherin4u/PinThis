@@ -16,7 +16,7 @@ const EditComment = ({ props }) => {
 
     const { closeModal } = useModal();
     const [comment, setComment] = useState(props.singleComment)
-    console.log(comment)
+  
     const [errors, setErrors] = useState([])
     const user = useSelector(state => state.session.user)
     const [showMenu, setShowMenu] = useState(false);

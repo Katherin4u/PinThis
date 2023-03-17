@@ -6,6 +6,7 @@ import commentsReducer from './comments';
 import searchReducer from './search';
 import likesReducer from './likes';
 
+
 const rootReducer = combineReducers({
   session,
   posts: postReducer,

@@ -45,7 +45,7 @@ const CreatePost = () => {
         // create post 
         if (!user) return null;
         const data = await dispatch(thunkCreatePost(payload))
-        console.log(data)
+        
 
         // after post is created, we will use postId     
         await setCreatedPost(data)

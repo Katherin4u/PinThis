@@ -1,128 +1,161 @@
 .all-post-images {
-    position: relative;
-    padding-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
 }
 
 .all-posts {
-    width: 100%;
-    margin: 0;
-    column-count: 7;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  column-count: 7;
+  padding: 0;
 }
 
-.all-post-container{
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 20px;
+.all-post-container {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 20px;
 }
 
 
 
 .img:hover {
-    cursor: pointer;
-    box-shadow: 5px 5px 10px lightgray, -.5em 0 .3em lightgray;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px lightgray, -.5em 0 .3em lightgray;
 }
 
 .img {
-    border-radius: 15px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: inline-block;
-    image-rendering: crisp-edges;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  image-rendering: crisp-edges;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 99%;
-    opacity: 0;
-    background-color: black;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99%;
+  opacity: 0;
+  background-color: black;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 15px;
 }
 
 .getting-overlay {
-    position: relative;
-    display: inline-block;
-    border-radius: 15px;
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.save-button-overlay{
+  background-color: red;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  
+}
+.save-button-overlay:hover {
+  cursor: pointer;
+  background-color: darkred;
+}
+
+.save-button-overlay{
+  display: none;
+}
+.getting-overlay2:hover .save-button-overlay{
+  display: block;
+}
+.getting-overlay2:hover .save-like-button{
+  display: block;
+}
+
+.save-like-button{
+  position: absolute;
+  /* bottom: 9%; */
+  left: 65%;
+  border-radius: 15px;
+  padding: 8px;
+  z-index: 2;
 }
 
 .getting-overlay:hover .overlay {
-    opacity: 0.5;
-    border-radius: 15px;
-}
-
-.title-all-posts-page{
-    font-size: 14px;
-    display: flex;
-    /* flex-direction: column; */
-    /* justify-content: space-evenly; */
-    /* height: 50px; */
-    text-align: left;
-    /* text-indent: 10px; */
-    font-weight: 600;
-    color: #211922;
-}
-.title-all-posts-page2{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  opacity: 0.5;
+  border-radius: 15px;
 }
 
 .title-all-posts-page {
-    white-space: nowrap; 
-    /* overflow: hidden;  */
-    text-overflow: ellipsis; 
-    max-width: 100%; 
-  }
-  
-  .title-all-posts-page2 {
-    display: inline-block; 
-    max-width: 100%; 
-  }
-  
-  /* .title-all-posts-page2::before {
+  font-size: 14px;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: space-evenly; */
+  /* height: 50px; */
+  text-align: left;
+  /* text-indent: 10px; */
+  font-weight: 600;
+  color: #211922;
+}
+
+.title-all-posts-page2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.title-all-posts-page {
+  white-space: nowrap;
+  /* overflow: hidden;  */
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.title-all-posts-page2 {
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* .title-all-posts-page2::before {
     content: attr(data-text); 
     visibility: hidden; 
   } */
-  
-  .title-all-posts-page2::after {
-    content: "..."; 
-  }
+
+.title-all-posts-page2::after {
+  content: "...";
+}
 
 
-  .image-post-container{
-    contain: content;
-    cursor: pointer;
-  }
+.image-post-container {
+  contain: content;
+  cursor: pointer;
+}
 
-  @media (min-width: 1px) and (max-width: 1030px) {
-   .nav-bar-profile-button{
+@media (min-width: 1px) and (max-width: 1030px) {
+  .nav-bar-profile-button {
     padding-right: 25px;
-   }
+  }
 
-  .nav-bar-profile-button > .fa-solid{
+  .nav-bar-profile-button>.fa-solid {
     padding-right: 15px;
   }
 
-  .all-post-container{
+  .all-post-container {
     padding-left: 29px;
     padding-right: 26px;
   }
-  
-  .the-profile-picture-all-posts > .fa-solid{
+
+  .the-profile-picture-all-posts>.fa-solid {
     padding-right: 10px;
   }
 
-  .nav-bar-profile-button2 > .fa-solid{
+  .nav-bar-profile-button2>.fa-solid {
     padding-right: 10px;
   }
-   
-    
+
+
 }
