@@ -8,15 +8,21 @@
  
 # Tech Stack
 
-* Javascript
-* python
-* Html
-* css
-* Redux
-* React
-* Render
-* wtForms
-* SqlAlchemy
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="Redux" alt="Redux " width="40" height="40"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" title="Python" alt="Python " width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/flask/flask-original.svg" title="Flask" alt="flask " width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original.svg" title="Express" alt="Express" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original-wordmark.svg" title="MySQL"  alt="MySQL" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" title="AWS" alt="AWS" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>
+</div>
+
 
 # Pin-it photos
 
@@ -31,6 +37,22 @@
 ![image](https://user-images.githubusercontent.com/107587143/222998090-35cc2f07-6ecf-4dd0-8cb8-59ae4233c740.png)
 
 * single post page, with all the details about the post
+
+![image](https://user-images.githubusercontent.com/107587143/226655483-90b164f8-579c-49c8-a4cc-8baabcdc51e9.png)
+
+* Create Post modal
+
+![image](https://user-images.githubusercontent.com/107587143/226655715-8821a051-d2d3-4ccb-bf61-fec1f18818ba.png)
+
+* Search Feature, shows anything that had the word anime in the title
+
+![image](https://user-images.githubusercontent.com/107587143/226656017-86042402-8fae-4511-ae93-bd850bfcf5b0.png)
+
+* User profile
+
+![image](https://user-images.githubusercontent.com/107587143/226656226-ee00e3e5-fd16-4135-9016-bb8b4fafc143.png)
+
+* 404 page (art by me)
 
 
 
