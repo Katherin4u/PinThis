@@ -53,7 +53,7 @@ const AllPosts = () => {
                                         <div className='image-post-container' key={post.id} onClick={(e) => ProductClick(e, post.id)}>
                                             <div className='getting-overlay'>
                                                 <div className='getting-overlay'>
-                                                    <img className='img' src={post.imagesUrl} onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png"; }}></img>
+                                                    <img id='img' className='img' src={post.imagesUrl} onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png"; }}></img>
                                                     <div className="overlay"></div>
                                                 </div>
                                                 <div style={{ display: "flex", fontWeight: 'bold', paddingBottom: "5px" }} className='title-all-posts-page2'>{post.name.slice(0, 13)}</div>

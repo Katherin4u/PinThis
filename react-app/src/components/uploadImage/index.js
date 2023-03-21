@@ -23,7 +23,7 @@
 //         });
 //         if (res.ok) {
 //             await res.json();
-//             console.log(res['url'])
+//           
 //             setImageLoading(false);
 //             history.push("/images");
 //         }
@@ -31,13 +31,13 @@
 //             setImageLoading(false);
 //             // a real app would probably use more advanced
 //             // error handling
-//             console.log("error");
+//             
 //         }
 //     }
     
 //     const updateImage = (e) => {
 //         const file = e.target.files[0];
-//         console.log(file)
+//        
 //         setImage(file);
 //     }
     

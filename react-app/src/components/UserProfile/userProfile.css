@@ -27,3 +27,36 @@
 .images-posted-by-user{
     margin: 3rem;
 }
+
+.created-button{
+    border: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    padding: 8px;
+}
+
+.saved-button{
+    border: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    padding: 8px;
+}
+.container-created-button{
+    padding-right: 20px;
+}
+
+.container-created-button :focus {
+    border-bottom: solid black ;
+}
+.created-button:hover {
+    background-color: lightgray;
+}
+
+.container-saved-button :focus{
+    border-bottom: solid black ;
+}
+.saved-button:hover{
+    background-color: lightgray;
+}
