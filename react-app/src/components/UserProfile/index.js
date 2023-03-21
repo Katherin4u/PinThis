@@ -52,7 +52,7 @@ const UserProfile = () => {
         }))
         .filter((post) => likedPostIds.includes(post.id))
     // const likedPosts = postObj.filter((post) => likedPostIds.includes(post.id))
-    // console.log(likedPosts)
+    
 
 
 
@@ -84,11 +84,11 @@ const UserProfile = () => {
                     </div>
                 </div>
                 <div style={{ borderBottom: "solid lightgray 1px", paddingBottom: "25px" }} className="created-title-profile">
-                    <div>
-                        <button onClick={handleButtonHtml2}>Created</button>
+                    <div className="container-created-button" onClick={handleButtonHtml2}>
+                        <button className="created-button">Created</button>
                     </div>
-                    <div >
-                        <button onClick={handleButtonHtml}>Liked Posts</button>
+                    <div className="container-saved-button" onClick={handleButtonHtml}>
+                        <button className="saved-button" >Saved</button>
                     </div>
                 </div>
                 <div>

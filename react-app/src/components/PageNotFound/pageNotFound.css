@@ -1,0 +1,13 @@
+.image-not-found-css{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headHome{
+    cursor: pointer;
+}
+.headHome:hover{
+   color: red;
+}

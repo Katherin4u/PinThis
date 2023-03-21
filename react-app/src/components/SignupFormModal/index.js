@@ -65,7 +65,7 @@ function SignupFormModal() {
 						<div className="input-div">
 
 							<input
-								minLength={5}
+								minLength={15}
 								className="email-input"
 								type="text"
 								value={email}

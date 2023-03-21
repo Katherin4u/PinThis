@@ -13,7 +13,7 @@ import Search from "./components/search";
 import Footer from "./components/Footer";
 import NotFound from "./components/PageNotFound";
 import UserProfile from "./components/UserProfile";
-import AllLikes from "./components/AllLikes";
+
 
 function App() {
   const dispatch = useDispatch();

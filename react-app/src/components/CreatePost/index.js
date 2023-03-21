@@ -77,11 +77,7 @@ const CreatePost = () => {
         setErrors(errors)
     }, [name, description, imageUrl])
 
-    // const updateImage = (e) => {
-    //     const file = e.target.files[0];
-    //     console.log(file)
-    //     setImage(file);
-    // }
+ 
 
 
 
