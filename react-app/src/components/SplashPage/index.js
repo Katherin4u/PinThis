@@ -59,7 +59,22 @@ const SplashPage = () => {
         "https://i.pinimg.com/236x/8e/91/a9/8e91a9a35524c358adae9a1daa765622.jpg",
         "https://i.pinimg.com/236x/d0/8c/aa/d08caabd2a6cc0c6074b4872a3265f91.jpg",
         "https://i.pinimg.com/236x/2d/96/79/2d9679f5d96a413c41f8a81151cb5b4c.jpg",
-        "https://i.pinimg.com/236x/85/42/8d/85428d6d5737580b85717ba71993d332.jpg",
+        // "https://i.pinimg.com/236x/85/42/8d/85428d6d5737580b85717ba71993d332.jpg",
+        // "https://i.pinimg.com/236x/43/cd/7c/43cd7c65d590d2f41c05a23f3dfe82d4.jpg",
+        // "https://i.pinimg.com/236x/c0/37/c3/c037c3126d2a9eec910a8724aed0e8fa.jpg",
+        // "https://i.pinimg.com/236x/57/3f/c9/573fc9f917681690b49cf43466576f4e.jpg",
+        // "https://i.pinimg.com/236x/3c/05/31/3c05317bd16d6ed8992d44843981c5a5.jpg",
+        // "https://i.pinimg.com/236x/7e/9c/3b/7e9c3b76d6862e3310160e8a72cf6d02.jpg",
+        // "https://i.pinimg.com/236x/97/86/0c/97860c4c2681108f93c32416f5ca0cff.jpg",
+        // "https://i.pinimg.com/236x/ea/79/49/ea794921b04b354c8b38b88701d1d3ef.jpg",
+        // "https://i.pinimg.com/474x/c9/34/c1/c934c16a4eec05f7951e5f5a24de5c67.jpg",
+        // "https://i.pinimg.com/236x/d0/fb/77/d0fb77854421291e55d9d5cdc04cfb77.jpg",
+        // "https://i.pinimg.com/236x/d5/69/1f/d5691f6a16aab0d79fb73988b6161c63.jpg",
+        // "https://i.pinimg.com/236x/08/83/36/0883364ff3418ed7d3b3fb118f34e0bd.jpg",
+
+
+
+
     ];
 
     const images2 = [
@@ -77,6 +92,19 @@ const SplashPage = () => {
         "https://i.pinimg.com/236x/a5/dc/a2/a5dca26c877dca333cfdc22ed6dc86fb.jpg",
         "https://i.pinimg.com/236x/43/48/48/4348487723e9c57d5c15266b9ffd7727.jpg",
         "https://i.pinimg.com/236x/e6/3c/03/e63c039e32d22654b05a81e3e927334f.jpg",
+        // "https://i.pinimg.com/236x/5d/a5/c4/5da5c434c8ec7213a69ec823972f1e83.jpg",
+        // "https://i.pinimg.com/236x/0b/9e/cc/0b9ecc9a20a82053ce12bce6fb72ac5e.jpg",
+        // "https://i.pinimg.com/236x/36/d9/8c/36d98ce0d72942c5141698eb808cb640.jpg",
+        // "https://i.pinimg.com/236x/80/d4/bb/80d4bb8ca45b1b55bcec5f10ec164d9d.jpg",
+        // "https://i.pinimg.com/236x/4d/8b/cf/4d8bcfba8ce8a6a89bc6513186fac8a3.jpg",
+        // "https://i.pinimg.com/236x/4a/a0/da/4aa0dabdbc14cdee96562e1c807dc71c.jpg",
+        // "https://i.pinimg.com/236x/cc/3d/ad/cc3dad89c7f78a780eb7a2a474aada57.jpg",
+        // "https://i.pinimg.com/474x/ca/84/50/ca8450eb1fc54a0d8ac717b1de9bfd80.jpg",
+        // "https://i.pinimg.com/236x/e4/b7/d6/e4b7d6ecb3717ff720a402c8e863aa9e.jpg",
+        // "https://i.pinimg.com/236x/1e/11/93/1e119317afde8690f2e19102a0fcf055.jpg",
+        // "https://i.pinimg.com/236x/15/93/ef/1593ef77e9ffc957a5b8caf82f4e079b.jpg",
+        // "https://i.pinimg.com/236x/3b/a8/e2/3ba8e24aa6d159d2f74aac010da3dd94.jpg",
+        // "https://i.pinimg.com/236x/f0/a0/56/f0a0562367b8af9971d1899d71a5eb4f.jpg",
     ];
 
     useEffect(() => {
