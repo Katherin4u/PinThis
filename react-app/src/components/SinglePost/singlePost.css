@@ -11,13 +11,15 @@
     flex-direction: row;
     border: solid white;
     box-shadow: 10px 10px 20px 0.5px rgba(179, 175, 175, 0.7);
-    width: 60rem;
-    height: 100%;
+    /* width: 60rem;
+    height: 100%; */
     border-radius: 30px;
 }
 
 .single-image-container {
     object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .image-image {
@@ -164,7 +166,7 @@
 .edit-delete-user-container {
     height: 100%;
     max-height: 800px;
-    width: 508px;
+    /* width: 508px; */
 
 }
 
