@@ -260,8 +260,16 @@
   padding-right: 5px;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+
 }
 
+.create-button-post{
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+}
 
 .this-is-logout-button{
   padding-left: 75px;
@@ -275,3 +283,4 @@
 .logout-button-user :hover{
   background-color: rgb(206, 206, 206);
 }
+

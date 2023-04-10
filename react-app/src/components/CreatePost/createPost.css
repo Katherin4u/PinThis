@@ -1,3 +1,5 @@
+
+
 .second-container-create-post {
     /* display: flex; */
     /* align-items: center; */
@@ -17,6 +19,84 @@
 .title-container-main {
     padding-bottom: 3rem;
     padding-top: 2rem;
+}
+
+.product-image-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 8px;
+    position: relative;
+    object-fit: contain;
+
+}
+
+/* .upload-photo-button:hover {
+    background-color: lightgray;
+    transition: .5s;
+} */
+
+.post-image-upload {
+    display: none;
+}
+
+.product-image-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100% - 36px);
+    /* width: 100%; */
+    
+}
+
+.upload-photo-button {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    border: dashed darkgray 2px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+
+}
+
+.upload-photo-button{
+    height: 24rem;
+    width: 15rem;
+}
+
+.product-image-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 8px;
+    position: relative;
+    object-fit: contain;
+
+}
+
+.uploaded-image-name {
+    font-size: 14px;
+    margin: 0px;
+    max-width: 150px;
+    display: flex;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    justify-content: center;
+}
+
+.upload-loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .textarea-title {
@@ -50,7 +130,7 @@
     font-weight: bold;
 }
 
-.user-lastName-create{
+.user-lastName-create {
     font-weight: bold;
 }
 
@@ -68,20 +148,20 @@
     border-radius: 50%;
 }
 
-.first-name-create{
+.first-name-create {
     display: flex;
 }
 
-.followers-create{
+.followers-create {
     padding-left: 15px;
 }
 
-.button-save-create{
+.button-save-create {
     display: flex;
     padding-left: 17rem;
 }
 
-.save-button-create-post{
+.save-button-create-post {
     background-color: red;
     color: white;
     border: none;
@@ -92,18 +172,26 @@
     border-radius: 25px;
 }
 
-.name-des-user{
+.upload-photo-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-des-user {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 34rem;
+    /* width: 50rem; */
 }
 
-.input-image-thing{
+.input-image-thing {
     padding: 10px;
     padding-left: 80px;
     padding-right: 80px;
-    text-align: left ;
+    text-align: left;
 
 }
 

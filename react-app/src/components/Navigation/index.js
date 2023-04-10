@@ -17,7 +17,10 @@ function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
 	
 	
-
+	const reRoute = (e) => {
+		e.preventDefault()
+		history.push("/create")
+	}
 	const handleSearch = async (e) => {
 		e.preventDefault();
 		dispatch(cleanUpSearchAction())
@@ -41,10 +44,11 @@ function Navigation({ isLoaded }) {
 						<div className='create-post-container'>
 							{isLoaded && (
 								<div className='create-post-input4'>
-									<OpenModalButton className='create-post-input4' buttonText='Create Post' modalComponent={<CreatePost />} />
+									<button className='create-button-post' onClick={reRoute}>Create Post</button>
+									{/* <OpenModalButton className='create-post-input4' buttonText='Create Post' modalComponent={<CreatePost />} /> */}
+									<i style={{paddingLeft: "7px"}} className="fas fa-angle-down"></i>
 								</div>
 							)}
-							<i className="fas fa-angle-down"></i>
 						</div>
 					</div>
 					<div className='nav-bar-search-container'>
