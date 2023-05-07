@@ -1,7 +1,7 @@
 # Pin-It
 
  Pin-it is a clone of Pinterest, all about anime, you are able to browse and look for anything related to anime. The user can post and comment as well as search
- for anything that they are specifically looking for.
+ for anything that they are specifically looking for. they are also able to save posts of their liking.
  
  * https://pin-it.onrender.com/
  
