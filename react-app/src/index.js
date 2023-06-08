@@ -9,6 +9,9 @@ import * as sessionActions from "./store/session";
 import App from "./App";
 
 import "./index.css";
+import ReactGA from 'react-ga';
+const TRACKING_ID = "UA-272880514-1"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 const store = configureStore();
 

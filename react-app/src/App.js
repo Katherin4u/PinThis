@@ -13,6 +13,7 @@ import Search from "./components/search";
 import Footer from "./components/Footer";
 import NotFound from "./components/PageNotFound";
 import UserProfile from "./components/UserProfile";
+import RouteChangeTracker from "./components/RouteChangeTracker";
 
 
 function App() {
@@ -25,34 +26,44 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <RouteChangeTracker />
       {isLoaded && (
         <Switch>
           <Route path="/login" >
             <LoginFormPage />
+            <RouteChangeTracker />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+            <RouteChangeTracker />
           </Route>
           <Route exact path="/posts">
             <AllPosts />
+            <RouteChangeTracker />
           </Route>
           <Route exact path="/create">
             <CreatePost />
+            <RouteChangeTracker />
           </Route>
           <Route path="/posts/:postId">
             <SinglePost />
+            <RouteChangeTracker />
           </Route>
           <Route exact path="/">
             <SplashPage />
+            <RouteChangeTracker />
           </Route>
           <Route path='/search'>
             <Search />
+            <RouteChangeTracker />
           </Route>
           <Route path='/profile'>
             <UserProfile />
+            <RouteChangeTracker />
           </Route>
           <Route to='/'>
             <NotFound />
+            <RouteChangeTracker />
           </Route>
         </Switch>
       )}
