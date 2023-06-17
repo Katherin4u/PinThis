@@ -26,7 +26,7 @@
 # Feature List
 
 * Post feature (creating a post and showcasing it)
-* search feature
+* search feature ( searching by something specific)
 * comment feature
 * like(save) feature
 
