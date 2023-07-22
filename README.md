@@ -42,7 +42,7 @@
 
 ![image](https://user-images.githubusercontent.com/107587143/222998090-35cc2f07-6ecf-4dd0-8cb8-59ae4233c740.png)
 
-* single post page, with all the details about the post
+# single post page, with all the details about the post
 
 ![image](https://user-images.githubusercontent.com/107587143/226655483-90b164f8-579c-49c8-a4cc-8baabcdc51e9.png)
 
