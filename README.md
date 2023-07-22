@@ -46,7 +46,7 @@
 
 ![image](https://user-images.githubusercontent.com/107587143/226655483-90b164f8-579c-49c8-a4cc-8baabcdc51e9.png)
 
-* Create Post modal
+# Create Post modal
 
 ![image](https://user-images.githubusercontent.com/107587143/226655715-8821a051-d2d3-4ccb-bf61-fec1f18818ba.png)
 
