@@ -50,11 +50,11 @@
 
 ![image](https://user-images.githubusercontent.com/107587143/226655715-8821a051-d2d3-4ccb-bf61-fec1f18818ba.png)
 
-* Search Feature, shows anything that had the word anime in the title
+# Search Feature, shows anything that had the word anime in the title
 
 ![image](https://user-images.githubusercontent.com/107587143/226656017-86042402-8fae-4511-ae93-bd850bfcf5b0.png)
 
-* User profile
+# User profile
 
 ![image](https://user-images.githubusercontent.com/107587143/226656226-ee00e3e5-fd16-4135-9016-bb8b4fafc143.png)
 
