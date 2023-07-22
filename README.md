@@ -34,7 +34,7 @@
 
 ![image](https://user-images.githubusercontent.com/107587143/222997958-4cc8097b-6262-4fb3-bd28-7acfa72dde3e.png)
 
-* splash page
+# splash page
 
 ![image](https://user-images.githubusercontent.com/107587143/222998020-aec551a5-d908-490a-992d-081238a49330.png)
 
