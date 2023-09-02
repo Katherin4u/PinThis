@@ -26,7 +26,7 @@
 # Feature List
 
 * Post feature (creating a post and showcasing it)!!!
-* search feature ( searching by something specific)
+* search feature ( searching by something specific)!!!
 * comment feature ( commenting on someone elses post)
 * like(save) feature ( saving posts that you like, also being able to see posts that you have created )
 
