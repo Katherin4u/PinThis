@@ -30,7 +30,7 @@
 * comment feature ( commenting on someone elses post)!!!
 * like(save) feature ( saving posts that you like, also being able to see posts that you have created )!!!
 
-# Pin-it photos
+# Pin-it photos!
 
 ![image](https://user-images.githubusercontent.com/107587143/222997958-4cc8097b-6262-4fb3-bd28-7acfa72dde3e.png)
 
